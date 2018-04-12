@@ -8,8 +8,8 @@ div {
 
 body {
 	background-color: white;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 
 /*the header bar at the top of the page*/
@@ -63,21 +63,40 @@ div.destination {
 }
 
 /*the filter for the search results*/
-.filter {
+.options {background-color: gold;}
 
-}
-
-.filter ul {
+.options ul {
 	list-style-type: none;
+	display: flex;
 	margin:0;
 	padding:0;
 	overflow: hidden;
+	justify-content: left;
+}
+
+.options ul li {
+	display: inline-block;
+	text-align: center;
+	padding: 15px;
+	margin: 10px;
+	text-decoration: none;
+}
+
+.filter {background-color: silver;}
+
+.filter ul {
+	list-style-type: none;
+	display: flex;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	justify-content: left;
 }
 
 .filter ul li, .filter ul li ul li{
-	float:left;
-	display: block;
+	display: inline-block;
 	text-align: center;
+	margin:0;
 	padding: 15px;
 	text-decoration: none;
 }
@@ -86,15 +105,49 @@ div.destination {
 	display: none;
 }
 
+.sort ul {
+	list-style-type: none;
+	display: none;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}
+
+.sort ul li {
+	display: block;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.perPage ul {
+	list-style-type: none;
+	display: none;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}
+
+.perPage ul li {
+	display: block;
+	text-align: center;
+	padding: 15px;
+	text-decoration: none;
+}
+
 li:hover {
 	background-color: blanchedalmond;
 }
 
+.perPage ul li:hover, .sort ul li:hover {
+	background-color: red;
+}
 
-/*the booking form in the body of the document*/
+
+/*main consists of tiled search results and a map search box*/
 main {
 	display: flex;
-	padding:10px;
+	padding:5px;
 	justify-content: space-between;
 	align-items: top;
 	height:auto;
@@ -108,8 +161,8 @@ main {
 	width:auto;
 	height:auto;
 	grid-template-rows: 400px;
-	grid-template-columns: minmax(300px, 400px) minmax(300px, 400px);
-	grid-auto-columns: minmax(300px, 400px) minmax(300px, 400px);
+	grid-template-columns: minmax(305px, 400px) minmax(305px, 400px);
+	grid-auto-columns: minmax(305px, 400px) minmax(305px, 400px);
 	grid-auto-rows: 400px;
 	grid-gap: 5px;
 }
@@ -123,7 +176,7 @@ main {
 	background-color: white;
 }
 
-.result div.image {
+.result .image {
 	width:240px;
 	height:160px;
 	border: solid black;
@@ -134,25 +187,31 @@ main {
 	margin: 0 auto;
 }
 
-.result div.information {
+.result .information {
 	text-align: left;
 	padding:10px;
-
 }
+
+.review {margin: 2px 0;}
+
+.review .rating {font-size: 20px;}
+
+.review p {display: inline;}
 
 .information p {
 	font-size: 14px;
-	padding:0;
-	margin:0;
+	padding:2px;
+	margin:3px 0;
 }
+
 .information h3 {
 	font-size: 20px;
-	padding:0;
-	margin:0;
+	padding:2px;
+	margin:1px;
 }
 
 .information .amenities p {
-	display: inline-block;
+	display: inline-blockblock;
 	font-size: 14px;
 }
 
@@ -166,17 +225,19 @@ main {
 
 .information .amenities ul li {
 	float:left;
+	padding:5px;
 }
 
 .mapSearch {
+	margin: 5px;
 	border: solid black;
-	width:500px;
-	height:500px;
+	width:490px;
+	height:490px;
 	display: fixed;
 	/*insert google maps here*/
 }
 
-/*page list*/
+/*a strip below main that shows the navigation for search results*/
 .pageList {
 	display: flex;
 	justify-content: center;
@@ -204,18 +265,19 @@ main {
 	textdecoration: none*/
 }
 
-
-/*footer mailing list and shit*/
-
+/*footer including mailing list, links, etc*/
 footer {
 	background-color: lightblue;
 }
 
 .references {
-	padding:10px;
+	display: flex;
+	padding:30px 0;
+	justify-content: space-around;
+	align-items: top;
 }
 
-.references h4 {
+.references div h4 {
 	font-size: 20px;
 	padding:0;
 	margin:0;
@@ -224,27 +286,27 @@ footer {
 .subscribe {
 	background-color: white;
 	height: 70px;
-	padding: 10px;
+	padding: 20px 10px;
 }
 
 .subscribe h3 {
 	margin:0;
-	margin-bottom: 5px;
 	padding:0;
+	margin-bottom: 5px;
 }
 .subscribe p {
 	display: inline-block;
+	height:30px;
 	margin:0;
 	padding:0;
-	height:30px;
 }
 .subscribe input {
 	display: inline-block;
+	height:30px;
+	width:60%;
 	margin:0;
 	padding:0;
 	font-size: 20;
-	width:60%;
-	height:30px;
 }
 
 div.final {

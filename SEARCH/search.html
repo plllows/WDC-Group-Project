@@ -4,17 +4,19 @@
 		<meta charset="utf-8">
 		<title>test</title>
 		<link rel="stylesheet" type="text/css" href="./search.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 	</head>
 	<body>
+		<!--The grey bar at the top, with company logo and log in-->
 		<header>
-		<div class="logo">
-			<img src="example.com">
-			<h1>BeeBNB</h1>
-		</div>
-		<div class="signup">
-			<button type="button" name="Sign up!">Sign up!</button>
-			<button type="button" name="Log in!">Log in!</button>
-		</div>
+			<div class="logo">
+				<img src="example.com">
+				<h1>BeeBNB</h1>
+			</div>
+			<div class="signup">
+				<button type="button" name="Sign up!">Sign up!</button>
+				<button type="button" name="Log in!">Log in!</button>
+			</div>
 		</header>
 
 		<!--no booking form but in the search landing page we need:
@@ -27,6 +29,8 @@
 		NO subscription
 
 		-->
+
+		<!--this div contains an image and description of the user's chosen destination-->
 		<div class="destination">
 			<div class="description">
 				<p>SYDNEY: we have 200000 properties available!</p>
@@ -36,12 +40,32 @@
 				<p>3 Nights from DD/MM/YYYY for N guests</p>
 			</div>
 		</div>
-
 		<hr>
 
-		
-
+		<!--this bar contains filering and sorting options for the search results-->
 		<!--refer to JS playground for implementing the hiding-->
+		<div class="options">
+			<ul>
+				<li>Filter</li>
+				<li>Sort
+					<div class="sort">
+						<ul>
+							<li>Price</li>
+							<li>Rating</li>
+						</ul>
+					</div>
+				</li>
+				<li>Per Page
+					<div class="perPage">
+						<ul>
+							<li>30</li>
+							<li>All</li>
+						</ul>
+					</div>	
+				</li>
+			</ul>
+		</div>
+
 		<div class="filter">
 			<ul>
 				<li>Price
@@ -80,24 +104,25 @@
 			</ul>
 		</div>
 
-		<hr>
-
+		<!--the main contains a vertical tiled list of search results, as well as a map to the right-->
 		<main>
 			<section class="reslist">
 				<div class="result">
 					<div class="image"></div>
 					<div class="information">
 						<h3>Generic Hotel!</h3>
-						<p>RATINGS: number by number guests!</p>
-						<p>Property type, location</p>
-						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
-						<p>PRICE DOLLARS: </p>
+						<div class="review">
+							<p class="rating">7.5</p> 
+							<p><a href="reviews.com">100 reviews</a></p>
+						</div>
+						<p>Hotel, Sydney Central</p>
+						<p><i>A beautiful hotel within walking distance of the famed Sydney Harbour. Watch the stunning sunsets from the open-air roof bar.</i></p>
+						<p>Rooms start at $<span class="price">80</span>/night</p>
 						<div class="amenities">
-							<p>AMENITIES</p>
+							<p>Facilities:</p>
 							<ul>
-								<li>WIFI</li>
-								<li>LAUNDRY</li>
-								<li>POOL</li>
+								<li><i class="fas fa-wifi"></i></li>
+								<li><i class="fas fa-bath"></i></li>
 							</ul>
 						</div>
 					</div>
@@ -106,17 +131,19 @@
 				<div class="result">
 					<div class="image"></div>
 					<div class="information">
-						<h3>Generic Hotel!</h3>
-						<p>RATINGS: number by number guests!</p>
-						<p>Property type, location</p>
-						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
-						<p>PRICE DOLLARS: </p>
+						<h3>BAD Hotel!</h3>
+						<div class="review">
+							<p class="rating">0.5</p> 
+							<p><a href="reviews.com">100 reviews</a></p>
+						</div>
+						<p>Hotel, Sydney Central</p>
+						<p><i>This hotel is so bad its average user reviews is just higher than my GPA last semester. However, due to the high demand for accomodation, this hotel still gets customers</i></p>
+						<p>Rooms start at $<span class="price">5</span>/night</p>
 						<div class="amenities">
-							<p>AMENITIES</p>
+							<p>Facilities:</p>
 							<ul>
-								<li>WIFI</li>
-								<li>LAUNDRY</li>
-								<li>POOL</li>
+								<li><i class="fas fa-wifi"></i></li>
+								<li><i class="fas fa-bath"></i></li>
 							</ul>
 						</div>
 					</div>
@@ -125,17 +152,40 @@
 				<div class="result">
 					<div class="image"></div>
 					<div class="information">
-						<h3>Generic Hotel!</h3>
-						<p>RATINGS: number by number guests!</p>
-						<p>Property type, location</p>
-						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
-						<p>PRICE DOLLARS: </p>
+						<h3>Awesome Hotel!</h3>
+						<div class="review">
+							<p class="rating">7.5</p> 
+							<p><a href="reviews.com">1000 reviews</a></p>
+						</div>
+						<p>Hotel, Sydney Central</p>
+						<p><i>Hotel for Divas. This is where celebrities stay when they visit Australia! You could run into Obama in the halls!</i></p>
+						<p>Rooms start at $<span class="price">800</span>/night</p>
 						<div class="amenities">
-							<p>AMENITIES</p>
+							<p>Facilities:</p>
 							<ul>
-								<li>WIFI</li>
-								<li>LAUNDRY</li>
-								<li>POOL</li>
+								<li><i class="fas fa-wifi"></i></li>
+								<li><i class="fas fa-bath"></i></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="result">
+					<div class="image"></div>
+					<div class="information">
+						<h3>Friendly Hotel!</h3>
+						<div class="review">
+							<p class="rating">7.5</p> 
+							<p><a href="reviews.com">100 reviews</a></p>
+						</div>
+						<p>Hotel, Sydney Central</p>
+						<p><i>This hotel doesn't have much to distinguish it from all the other hotels in Sydney - except for its friendliness! Best most friendly hotel!</i></p>
+						<p>Rooms start at $<span class="price">80</span>/night</p>
+						<div class="amenities">
+							<p>Facilities:</p>
+							<ul>
+								<li><i class="fas fa-wifi"></i></li>
+								<li><i class="fas fa-bath"></i></li>
 							</ul>
 						</div>
 					</div>
@@ -149,9 +199,9 @@
 				
 			</section>
 		</main>
-
 		<hr>
 
+		<!--shows navigation within search results (e.g. now showing 1-30 of 68 results)-->
 		<div class="pageList">
 			<!--navigate to different pages to view more results!-->
 			<button type="button">begin()</button>
@@ -162,44 +212,71 @@
 			</ul>
 			<button type="button">end()</button>
 		</div>
-
-		<!--travel articles with images-->
 		<hr>
+
+		<!--extra links, subscription prompt, copyright and accessibility-->
 		<footer>
-		<div class="references">
-			<h4>Links:</h4>
-			<ul>
-				<li>About us</li>
-				<li>Affiliates</li>
-			</ul>
-		</div>
+			<div class="references">
+				<div>
+					<h4>About Us:</h4>
+					<ul>
+						<li>Affiliates</li>
+						<li>Our Mission</li>
+						<li>Hotel Sign Up</li>
+					</ul>
+				</div>
+				<div>
+					<h4>Join our team!</h4>
+					<ul>
+						<li>Careers</li>
+						<li>Our Offices</li>
+						<li>Career Outcomes</li>
+					</ul>
+				</div>
+				<div>
+					<h4>Useful reading:</h4>
+					<ul>
+						<li>Privacy policy</li>
+						<li>Insurance</li>
+						<li>Travel and Safety</li>
+						<li>Blogs</li>
+					</ul>
+				</div>
+				<div>
+				<h4>Find us on Social Media:</h4>
+					<ul>
+						<li>Facebook</li>
+						<li>Instagram</li>
+						<li>Twitter</li>
+					</ul>
+				</div>
+			</div>	
 
-		<div class="subscribe">
-			<h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
-			<p>Join our VIP Club!:</p>
-			<input type="text" name="email"><br>
-		</div>
+			<div class="subscribe">
+				<h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
+				<p>Join our VIP Club!:</p>
+				<input type="text" name="email"><br>
+			</div>	
 
-
-		<div class="final">
-			<p class="copyright">&#169; BeeBNB 2018</p>
-			
-			<div class="accessibility"></div>
-				<p class="prompt">Select Currency/Language:</p>
-				<nav>
-					<select name="Select Currency:">
-						<option value="1">USD</option>
-						<option value="2">AUD</option>	
-						<option value="3">dong</option>
-					</select>
-					<select name="Select Language:">
-						<option value="1">English</option>
-						<option value="2">British</option>
-						<option value="3">American</option>
-					</select>
-				</nav>
+			<div class="final">
+				<p class="copyright">&#169; BeeBNB 2018</p>
+				
+				<div class="accessibility"></div>
+					<p class="prompt">Select Currency/Language:</p>
+					<nav>
+						<select name="Select Currency:">
+							<option value="1">USD</option>
+							<option value="2">AUD</option>	
+							<option value="3">dong</option>
+						</select>
+							<select name="Select Language:">
+							<option value="1">English</option>
+							<option value="2">British</option>
+							<option value="3">American</option>
+						</select>
+					</nav>
+				</div>
 			</div>
-		</div>
 		</footer>
 	</body>
 </html>

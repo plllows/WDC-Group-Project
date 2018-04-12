@@ -12,13 +12,13 @@ body {
 	padding:0;
 }
 
-/*the header bar at the top of the page*/
+/*header bar at the top of the page*/
 header {
 	display: flex;
-	justify-content: space-between;
 	background-color: grey;
 	height: 50px;
 	padding: 10px;
+	justify-content: space-between;
 }
 
 div.logo {
@@ -33,45 +33,49 @@ div.signup {
 	align-items: center;
 }
 
-header h1 {display: inline-block; width: 200px; color: yellow;}
+header h1 {
+	display: inline-block; 
+	width: 200px; 
+	color: yellow;
+}
 
 header button {
 	display: inline-block;
-	margin:5px;
+	margin: 5px;
 }
 
-/*the booking form in the body of the document*/
+/*main containing the booking form*/
 main {
 	display: flex;
+	height: 700px;
 	justify-content: center;
 	align-items: center;
-	height:700px;
 	background-image: url(./volcano.JPG);
-	background-position:50% 50%; 
-	background-size:cover; 
+	background-position: 50% 50%; 
+	background-size: cover; 
 }
+
 #bookingForm {
 	display: grid;
+	background-color: rgba(222, 152, 234,0.5);
+	height:180px;
+	width: 410px;
+	margin: 30px auto;
 	grid-template-areas: "dest dest dest"
 	"checkIn checkOut guestCount"
 	"submit submit submit";
 	grid-template-rows: 2fr 2fr 1fr;
 	grid-template-columns: 2fr 2fr 1fr;
-	
-	background-color: rgba(222, 152, 234,0.5);
 	align-content: space-evenly;
 	align-items: stretch;
 	justify-content: space-evenly;
 	justify-items: stretch;
-	height:180px;
-	width: 410px;
-	margin: 30px auto;
 }
 
 #bookingForm div {
 	text-align: center;
 	padding: 10px; 
-	margin:0;
+	margin: 0;
 }
 
 #bookingForm div input {display: inline-block; margin: 0 auto;}
@@ -89,31 +93,30 @@ div.submit input {font-size: 15px;}
 /*articles in our suggestions list*/
 .suggestions {
 	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	width: 100%;
 	margin: 10px auto;
 	grid-gap: 6px;
-	width: 100%;
-	height:auto;
 	justify-content: left;
-	flex-wrap: wrap;
 }
 
 .article {
+	background-color: slategrey;
 	height: 300px;
-	width:280px;
+	width: 270px;
 	padding: 10px; 
 	margin:10px;
 	overflow: hidden;
-	background-color: slategrey;
 }
 
 .article h3 {
 	display: block;
+	text-align: center;
 	padding:0; 
 	margin:0;
-	text-align: center;
 }
 
-/*must make sure when col resizes, image is centered*/
 .article .image {
 	width: auto;
 	height: 150px;
@@ -127,17 +130,36 @@ div.submit input {font-size: 15px;}
 	font-size: 14px;
 }
 
-/*footer mailing list and shit*/
+/*list of reasons why you should book with us*/
+.persuasion {
+	display: flex;
+	background-color: rgba(36, 255, 197);
+	width: 100%;
+	height: auto;
+	padding: 50px 0;
+	justify-content: space-around;
+	align-items: top;
+}
 
+.perk {
+	text-align: center;
+	width:300px;
+	height:250px;
+}
+
+/*footer including mailing list, links, etc*/
 footer {
 	background-color: lightblue;
 }
 
 .references {
-	padding:10px;
+	display: flex;
+	padding:30px 0;
+	justify-content: space-around;
+	align-items: top;
 }
 
-.references h4 {
+.references div h4 {
 	font-size: 20px;
 	padding:0;
 	margin:0;
@@ -146,27 +168,27 @@ footer {
 .subscribe {
 	background-color: white;
 	height: 70px;
-	padding: 10px;
+	padding: 20px 10px;
 }
 
 .subscribe h3 {
 	margin:0;
-	margin-bottom: 5px;
 	padding:0;
+	margin-bottom: 5px;
 }
 .subscribe p {
 	display: inline-block;
+	height:30px;
 	margin:0;
 	padding:0;
-	height:30px;
 }
 .subscribe input {
 	display: inline-block;
+	height:30px;
+	width:60%;
 	margin:0;
 	padding:0;
 	font-size: 20;
-	width:60%;
-	height:30px;
 }
 
 div.final {
