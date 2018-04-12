@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="./search.css">
+	</head>
+	<body>
+		<header>
+		<div class="logo">
+			<img src="example.com">
+			<h1>BeeBNB</h1>
+		</div>
+		<div class="signup">
+			<button type="button" name="Sign up!">Sign up!</button>
+			<button type="button" name="Log in!">Log in!</button>
+		</div>
+		</header>
+
+		<!--no booking form but in the search landing page we need:
+		destination, the information we searched with, filters, sort results
+		map search
+		a grid for displaying search results
+
+		bottom of page:
+		more reference links, connect via social media?
+		NO subscription
+
+		-->
+		<div class="destination">
+			<div class="description">
+				<p>SYDNEY: we have 200000 properties available!</p>
+				<p>being the capital city of Australia, Sydney's beautiful harbours and suicidal housing prices will surely capture your heart!</p>
+			</div>
+			<div class="preferences">
+				<p>3 Nights from DD/MM/YYYY for N guests</p>
+			</div>
+		</div>
+
+		<hr>
+
+		
+
+		<!--refer to JS playground for implementing the hiding-->
+		<div class="filter">
+			<ul>
+				<li>Price
+					<ul>
+						<li>$20-50</li>
+						<li>$50-100</li>
+						<li>$100-300</li>
+						<li>$300+</li>
+					</ul>
+				</li>
+				<li>Rating
+					<ul>
+						<li>9.0+</li>
+						<li>8.0-9.0</li>
+						<li>7.0-8.0</li>
+						<li>6.0-7.0</li>
+						<li>6.0-</li>
+					</ul>
+				</li>
+				<li>Facilities
+					<ul>
+						<li>Free Wifi</li>
+						<li>Free Breakfast</li>
+						<li>Washer</li>
+						<li>Dryer</li>
+						<li>Airport Shuttle</li>
+					</ul>
+				</li>
+				<li>Room Type
+					<ul>
+						<li>Dorm</li>
+						<li>Private Room</li>
+						<li>Deluxe Suite</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<main>
+			<section class="reslist">
+				<div class="result">
+					<div class="image"></div>
+					<div class="information">
+						<h3>Generic Hotel!</h3>
+						<p>RATINGS: number by number guests!</p>
+						<p>Property type, location</p>
+						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
+						<p>PRICE DOLLARS: </p>
+						<div class="amenities">
+							<p>AMENITIES</p>
+							<ul>
+								<li>WIFI</li>
+								<li>LAUNDRY</li>
+								<li>POOL</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="result">
+					<div class="image"></div>
+					<div class="information">
+						<h3>Generic Hotel!</h3>
+						<p>RATINGS: number by number guests!</p>
+						<p>Property type, location</p>
+						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
+						<p>PRICE DOLLARS: </p>
+						<div class="amenities">
+							<p>AMENITIES</p>
+							<ul>
+								<li>WIFI</li>
+								<li>LAUNDRY</li>
+								<li>POOL</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="result">
+					<div class="image"></div>
+					<div class="information">
+						<h3>Generic Hotel!</h3>
+						<p>RATINGS: number by number guests!</p>
+						<p>Property type, location</p>
+						<p>this generic hotel is very generic and is located in these parts. You should totally stay here because ...</p>
+						<p>PRICE DOLLARS: </p>
+						<div class="amenities">
+							<p>AMENITIES</p>
+							<ul>
+								<li>WIFI</li>
+								<li>LAUNDRY</li>
+								<li>POOL</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="mapSearch">
+				<!--fixed display;
+					we will need to include basic functionality into
+					this map for the sake of the assignment-->
+				
+			</section>
+		</main>
+
+		<hr>
+
+		<div class="pageList">
+			<!--navigate to different pages to view more results!-->
+			<button type="button">begin()</button>
+			<ul>
+				<li><button type="button">1</button></li>
+				<li><button type="button">2</button></li>
+				<li><button type="button">3</button></li>
+			</ul>
+			<button type="button">end()</button>
+		</div>
+
+		<!--travel articles with images-->
+		<hr>
+		<footer>
+		<div class="references">
+			<h4>Links:</h4>
+			<ul>
+				<li>About us</li>
+				<li>Affiliates</li>
+			</ul>
+		</div>
+
+		<div class="subscribe">
+			<h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
+			<p>Join our VIP Club!:</p>
+			<input type="text" name="email"><br>
+		</div>
+
+
+		<div class="final">
+			<p class="copyright">&#169; BeeBNB 2018</p>
+			
+			<div class="accessibility"></div>
+				<p class="prompt">Select Currency/Language:</p>
+				<nav>
+					<select name="Select Currency:">
+						<option value="1">USD</option>
+						<option value="2">AUD</option>	
+						<option value="3">dong</option>
+					</select>
+					<select name="Select Language:">
+						<option value="1">English</option>
+						<option value="2">British</option>
+						<option value="3">American</option>
+					</select>
+				</nav>
+			</div>
+		</div>
+		</footer>
+	</body>
+</html>

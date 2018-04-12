@@ -84,7 +84,7 @@ div.manCount {grid-area: guestCount;}
 div.submit {grid-area: submit;}
 
 div.dest input {width: 100%; font-size: 25px}
-div.submit button {font-size: 15px;}
+div.submit input {font-size: 15px;}
 
 /*articles in our suggestions list*/
 .suggestions {
