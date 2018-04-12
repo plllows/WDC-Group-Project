@@ -3,72 +3,111 @@
 	<head>
 		<meta charset="utf-8">
 		<title>test</title>
+		<link rel="stylesheet" type="text/css" href="./home.css">
 	</head>
 	<body>
 		<header>
-		<img src="example.com">
-		<h1>BeeBNB</h1>
-		<button type="button" name="Sign up!">Sign up!</button>
-		<button type="button" name="Log in!">Log in!</button>
+		<div class="logo">
+			<img src="example.com">
+			<h1>BeeBNB</h1>
+		</div>
+		<div class="signup">
+			<button type="button" name="Sign up!">Sign up!</button>
+			<button type="button" name="Log in!">Log in!</button>
+		</div>
+		
 		<!--
 		login/signup button
 		-->
 		</header>
-
-		<hr>
-
 		<main>
-		<form action="_blank" method="get" target="_blank">
-			Destination:<br>
-			<input type="text" name="destination"><br>
-			Check in date:<br>
-			<input type="text" name="check in"><br>
-			Check out date:<br>
-			<input type="text" name="check out"><br>
-			Number of guests:
-			<input type="number" min="1" name="number of guests"><br>
-			Search<br>
-			<input type="submit" name="submit form">
+		<form id="bookingForm" action="_blank" method="get" target="_blank">
+			<div class="dest">
+				<p>Destination</p>
+				<br>
+				<input type="text" name="destination">
+			</div>
+			<div class="in">
+				<p>Check in:</p>
+				<br>
+				<input class="dateSelect" type="date" name="check in" value="1999-06-03">
+			</div>
+			<div class="out">
+				<p>Check out:</p>
+				<br>
+				<input class="dateSelect" type="date" name="check out" value="1999-06-04">
+			</div>
+			<div class="manCount">
+				<p>Guests:</p>
+				<br>
+				<input type="number" min="1" max="20" name="number of guests">
+			</div>
+			<div class="submit">
+				<!--
+				<input type="submit" name="submit form">
+				-->
+				<button type="submit" label>Find where you should BEE!</button>
+			</div>
 		</form>
-		<!--
-		form elements: 
-		destination
-		checkin date
-		checkout date
-		#guests
-		-->
-
-		<!--
-		image background
-		travel articles
-		-->
-
 		</main>
 
-		<p>Travel to this country!</p>
-		<p>Here is nice food you can try!</p>
-		<p>Come to australia!</p>
+		<!--travel articles with images-->
 
-		<hr>
+		<section class="suggestions">
+			<div class="article">
+				<h3>Travel to this country!</h3>
+				<div class="image"></div>
+				<p>You'll love the nothern neighbour of this prospering East Asian country! Glorious leader's warmth will make you happy! Best most happy country! <a href="link.com">read more</a></p>
+			</div>
+
+			<div class="article">
+				<h3>Here is nice food you can try!</h3>
+				<div class="image"></div>
+				<p>Nona always makes YUM spaghetti! Very very delicious! Noodles handmade! Tomatoes home grown! Fasta Pasta ain't got shit on Nona! <a href="link.com">read more</a></p>
+			</div>
+
+			<div class="article">
+				<h3>Come to Australia!</h3>
+				<div class="image"></div>
+				<p>Our insurance companies need ur cash! Beautiful wildlife and stuff for you to see... <a href="link.com">read more</a></p>
+			</div>
+		</section>
 
 		<footer>
+		<div class="references">
+			<h4>Links:</h4>
 			<ul>
 				<li>About us</li>
 				<li>Affiliates</li>
 			</ul>
-			<p>Join our VIP Club:</p>
+		</div>
+
+		<div class="subscribe">
+			<h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
+			<p>Join our VIP Club!:</p>
 			<input type="text" name="email"><br>
-			<p>copy right bbbbnb 2018</p>
-			<select name="Select Currency:">
-				<option value="1">USD</option>
-				<option value="2">AUD</option>
-				<option value="3">dong</option>
-			</select>
-			<select name="Select Language:">
-				<option value="1">English</option>
-				<option value="2">British</option>
-				<option value="3">American</option>
-			</select>
+		</div>
+
+
+		<div class="final">
+			<p class="copyright">&#169; BeeBNB 2018</p>
+			
+			<div class="accessibility"></div>
+				<p class="prompt">Select Currency/Language:</p>
+				<nav>
+					<select name="Select Currency:">
+						<option value="1">USD</option>
+						<option value="2">AUD</option>	
+						<option value="3">dong</option>
+					</select>
+					<select name="Select Language:">
+						<option value="1">English</option>
+						<option value="2">British</option>
+						<option value="3">American</option>
+					</select>
+				</nav>
+			</div>
+		</div>
 		</footer>
 	</body>
 </html>
