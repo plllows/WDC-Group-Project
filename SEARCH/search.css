@@ -8,28 +8,28 @@ div {
 
 body {
 	background-color: white;
-	margin: 0;
-	padding: 0;
+	margin:0;
+	padding:0;
 }
 
-/*the header bar at the top of the page*/
+/*header bar at the top of the page*/
 header {
 	display: flex;
-	justify-content: space-between;
 	background-color: grey;
 	height: 50px;
 	padding: 10px;
+	justify-content: space-between;
 }
 
 div.logo {
 	display: flex;
-	justify-content: left;
+	justify-content: flex-start;
 	align-items: center;
 }
 
 div.signup {
 	display: flex;
-	justify-content: right;
+	justify-content: flex-end;
 	align-items: center;
 }
 
@@ -71,7 +71,7 @@ div.destination {
 	margin:0;
 	padding:0;
 	overflow: hidden;
-	justify-content: left;
+	justify-content: flex-start;
 }
 
 .options ul li {
@@ -90,7 +90,7 @@ div.destination {
 	margin:0;
 	padding:0;
 	overflow: hidden;
-	justify-content: left;
+	justify-content: flex-start;
 }
 
 .filter ul li, .filter ul li ul li{
@@ -149,7 +149,7 @@ main {
 	display: flex;
 	padding:5px;
 	justify-content: space-between;
-	align-items: top;
+	align-items: flex-start;
 	height:auto;
 	width: 100%;
 	height:auto;
@@ -211,7 +211,7 @@ main {
 }
 
 .information .amenities p {
-	display: inline-blockblock;
+	display: inline-block;
 	font-size: 14px;
 }
 
@@ -219,13 +219,14 @@ main {
 	display: inline-block;
 	list-style-type: none;
 	margin:0;
-	padding:0;
-	overflow: hidden;
+	padding: 0px;
 }
 
 .information .amenities ul li {
 	float:left;
 	padding:5px;
+	top: 10px;
+	position: relative;
 }
 
 .mapSearch {
@@ -233,7 +234,6 @@ main {
 	border: solid black;
 	width:490px;
 	height:490px;
-	display: fixed;
 	/*insert google maps here*/
 }
 
@@ -274,7 +274,6 @@ footer {
 	display: flex;
 	padding:30px 0;
 	justify-content: space-around;
-	align-items: top;
 }
 
 .references div h4 {
@@ -306,7 +305,7 @@ footer {
 	width:60%;
 	margin:0;
 	padding:0;
-	font-size: 20;
+	font-size: 15px;
 }
 
 div.final {
@@ -317,7 +316,7 @@ div.final {
 
 div.accessibility {
 	display:flex;
-	justify-content: right;
+	justify-content: flex-end;
 	align-items: center;
 }
 .copyright {
@@ -332,7 +331,7 @@ div.accessibility {
 
 .accessibility nav select {
 	display: inline-block;
-	padding:0
-	margin:10px;
-	float:right;
+	padding: 0;
+	margin: 10px;
+	float: right;
 }

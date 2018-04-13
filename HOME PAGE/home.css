@@ -23,13 +23,13 @@ header {
 
 div.logo {
 	display: flex;
-	justify-content: left;
+	justify-content: flex-start;
 	align-items: center;
 }
 
 div.signup {
 	display: flex;
-	justify-content: right;
+	justify-content: flex-end;
 	align-items: center;
 }
 
@@ -66,10 +66,9 @@ main {
 	"submit submit submit";
 	grid-template-rows: 2fr 2fr 1fr;
 	grid-template-columns: 2fr 2fr 1fr;
-	align-content: space-evenly;
+	align-content: space-around;
 	align-items: stretch;
-	justify-content: space-evenly;
-	justify-items: stretch;
+	justify-content: space-around;
 }
 
 #bookingForm div {
@@ -98,7 +97,7 @@ div.submit input {font-size: 15px;}
 	width: 100%;
 	margin: 10px auto;
 	grid-gap: 6px;
-	justify-content: left;
+	justify-content: flex-start;
 }
 
 .article {
@@ -133,12 +132,12 @@ div.submit input {font-size: 15px;}
 /*list of reasons why you should book with us*/
 .persuasion {
 	display: flex;
-	background-color: rgba(36, 255, 197);
+	background-color: rgb(36, 255, 197);
 	width: 100%;
 	height: auto;
 	padding: 50px 0;
 	justify-content: space-around;
-	align-items: top;
+	align-items: flex-start;
 }
 
 .perk {
@@ -156,7 +155,6 @@ footer {
 	display: flex;
 	padding:30px 0;
 	justify-content: space-around;
-	align-items: top;
 }
 
 .references div h4 {
@@ -188,7 +186,7 @@ footer {
 	width:60%;
 	margin:0;
 	padding:0;
-	font-size: 20;
+	font-size: 15px;
 }
 
 div.final {
@@ -199,7 +197,7 @@ div.final {
 
 div.accessibility {
 	display:flex;
-	justify-content: right;
+	justify-content: flex-end;
 	align-items: center;
 }
 .copyright {
@@ -214,7 +212,7 @@ div.accessibility {
 
 .accessibility nav select {
 	display: inline-block;
-	padding:0
-	margin:10px;
-	float:right;
+	padding: 0;
+	margin: 10px;
+	float: right;
 }
