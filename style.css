@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+ul{list-style:none ;}
+
+h1{background: #a64dff;
+   color:White;}
+
+p {margin-top:10px;
+   text-indent:9.3em;
+   font-weight:bold;
+   font-size: 18px;}
+
+img{border:none;}
+
+a{blr:expression(this.onFocus=this.blur());outline:none;}
+
+
+#bookingForm {
+
+	display: grid;
+
+
+	
+
+	grid-template-areas: "dest dest dest"
+
+	"checkIn checkOut guestCount"
+
+	"submit submit submit";
+
+
+	align-content: space-evenly;
+
+	align-items: stretch;
+
+	justify-content: space-evenly;
+
+	justify-items: stretch;
+
+}
+
+
+
+#bookingForm div {
+
+	text-align: center;
+
+	padding: 10px; 
+
+	margin: 0;
+
+}
+
+
+
+#bookingForm div input {display: inline-block; margin: 0 auto;}
+
+#bookingForm div p {display: inline-block; margin: 0 auto; }
+
+
+
+div.dest {grid-area: dest;}
+
+div.in {grid-area: checkIn;}
+
+div.out {grid-area: checkOut;}
+
+div.manCount {grid-area: guestCount;}
+
+div.submit {grid-area: submit;}
+
+
+
+div.dest input {width: 100%; font-size: 25px}
+
+div.submit input {font-size: 15px;}
+
+
+
+.banner-box{min-width:1000px;height:530px;position:relative;overflow:hidden;}
+.banner-box .thepics{ width:100% !important;}
+.banner-box .thepics li .m-width {width:1000px;margin:0 auto;overflow:hidden;}
+.banner-box .thepics li{width:100% !important;height:530px;}
+.banner-box .thepics li a{display:block;background-size:auto;}
+
+.banner-btn{width:1100px;position:absolute;top:210px;left:50%;margin-left:-650px;}
+.banner-btn a{display:block;width:49px;height:104px;position:absolute;top:0;filter:alpha(opacity=40);-moz-opacity:0.4;-khtml-opacity:0.4;opacity:0.4;}
+.banner-btn a.prev{left:160px;background:url(../images/foot.png) no-repeat 0 0;} 
+.banner-btn a.next{right:-40px;background:url(../images/foot.png) no-repeat -49px 0;}
+
+.banner-box .hd {position:absolute;top:270px;left:537px;}
+.banner-box .hd ul li{width:12px;height:12px;border-radius :50%;text-indent:-9999px;margin-right:20px;background:#ccc;float:left;cursor:pointer;}
+.banner-box .hd ul li.on{background:#DA324D;}
