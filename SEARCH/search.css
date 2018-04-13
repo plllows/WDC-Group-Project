@@ -326,11 +326,8 @@ div.accessibility {
 	margin:0;
 }
 
-.accPrompt {
-	display: inline-block;
-	padding:0;
-	margin:10px;
-	width:170px;
+.accessibility .prompt {
+	margin-right: 20px;
 }
 
 .accessibility nav select {

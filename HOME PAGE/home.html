@@ -11,7 +11,7 @@
 		<!--The grey bar at the top, with company logo and log in-->
 		<header>
 			<div class="logo">
-				<img src="example.com">
+				<img alt="bee" src="example.com">
 				<h1>BeeBNB</h1>
 			</div>
 			<div class="signup">
@@ -31,12 +31,12 @@
 				<div class="in">
 					<p>Check in:</p>
 					<br>
-					<input class="dateSelect" type="date" name="check in" value="1999-06-03">
+					<input class="dateSelect" type="date" name="check in" min="2018-01-01" max="2020-01-01" value="1999-06-03">
 				</div>
 				<div class="out">
 					<p>Check out:</p>
 					<br>
-					<input class="dateSelect" type="date" name="check out" value="1999-06-04">
+					<input class="dateSelect" type="date" name="check out" min="2018-01-01" max="2020-01-01" value="1999-06-04">
 				</div>
 				<div class="manCount">
 					<p>Guests:</p>
@@ -138,7 +138,7 @@
 			<div class="final">
 				<p class="copyright">&#169; BeeBNB 2018</p>
 				
-				<div class="accessibility"></div>
+				<div class="accessibility">
 					<p class="prompt">Select Currency/Language:</p>
 					<nav>
 						<select name="Select Currency:">
