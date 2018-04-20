@@ -1,0 +1,61 @@
+/*index page*/
+body {
+	background-color: white;
+}
+
+.article {
+	background-color: slategrey;
+}
+
+#bookingForm {
+	background-color: rgba(222, 152, 234,0.5);
+}
+
+.persuasion {
+	background-color: rgb(36, 255, 197);
+}
+
+/*search page*/
+body {
+	background-color: white;
+}
+
+main {
+	background-color: blanchedalmond;
+}
+
+.options {
+	background-color: gold;
+}
+
+.filter {
+	background-color: silver;
+}
+
+li:hover {
+	background-color: blanchedalmond;
+}
+
+.perPage ul li:hover, .sort ul li:hover {
+	background-color: red;
+}
+
+.result {
+	background-color: white;
+}
+
+
+/*header of page*/
+header {
+	background-color: grey;
+}
+
+/*footer of page*/
+footer {
+	background-color: lightblue;
+}
+
+.subscribe {
+	background-color: white;
+}
+

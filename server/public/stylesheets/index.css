@@ -7,7 +7,6 @@ div {
 */
 
 body {
-	background-color: white;
 	margin:0;
 	padding:0;
 }
@@ -15,7 +14,6 @@ body {
 /*header bar at the top of the page*/
 header {
 	display: flex;
-	background-color: grey;
 	height: 50px;
 	padding: 10px;
 	justify-content: space-between;
@@ -57,7 +55,6 @@ main {
 
 #bookingForm {
 	display: grid;
-	background-color: rgba(222, 152, 234,0.5);
 	height:180px;
 	width: 410px;
 	margin: 30px auto;
@@ -101,7 +98,6 @@ div.submit input {font-size: 15px;}
 }
 
 .article {
-	background-color: slategrey;
 	height: 300px;
 	width: 270px;
 	padding: 10px; 
@@ -132,7 +128,6 @@ div.submit input {font-size: 15px;}
 /*list of reasons why you should book with us*/
 .persuasion {
 	display: flex;
-	background-color: rgb(36, 255, 197);
 	width: 100%;
 	height: auto;
 	padding: 50px 0;
@@ -147,9 +142,6 @@ div.submit input {font-size: 15px;}
 }
 
 /*footer including mailing list, links, etc*/
-footer {
-	background-color: lightblue;
-}
 
 .references {
 	display: flex;
@@ -164,7 +156,6 @@ footer {
 }
 
 .subscribe {
-	background-color: white;
 	height: 70px;
 	padding: 20px 10px;
 }
