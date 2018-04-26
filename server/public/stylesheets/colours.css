@@ -1,6 +1,31 @@
 /*BEE-spirational colours
+https://coolors.co/6b9c3f-41b4c3-fcde1c-c17a48-843521*/
 
+/*green: 
+hsla(92, 60%, 35%, 1);
+blue: 
+hsla(187, 67%, 44%, 1);
+yellow: 
+hsla(52, 89%, 55%, 1);
+light brown: 
+hsla(25, 63%, 58%, 1);
+dark choco: 
+hsla(12, 75%, 27%, 1);
 */
+
+/*header of page*/
+header {
+	background-color: hsla(25, 63%, 58%, 1);
+}
+
+/*footer of page*/
+footer {
+	background-color: hsla(187, 67%, 44%, 1);
+}
+
+.subscribe {
+	background-color: hsla(25, 63%, 58%, 1);
+}
 
 /*index page*/
 body {
@@ -8,32 +33,39 @@ body {
 }
 
 .article {
-	background-color: slategrey;
+	background-color: hsla(52, 89%, 55%, 1);
 }
 
 #bookingForm {
-	background-color: rgba(222, 152, 234,0.5);
+	background-color: hsla(52, 89%, 55%, 1);
 }
 
 .persuasion {
-	background-color: rgb(36, 255, 197);
+	background-color: hsla(92, 60%, 35%, 1);
 }
+
+/*green: 
+hsla(92, 60%, 35%, 1);
+blue: 
+hsla(187, 67%, 44%, 1);
+yellow: 
+hsla(52, 89%, 55%, 1);
+light brown: 
+hsla(25, 63%, 58%, 1);
+dark choco: 
+hsla(12, 75%, 27%, 1);
+*/
 
 /*search page*/
-body {
-	background-color: white;
+#searchMain {
+	background-color: hsla(25, 63%, 58%, 1);
 }
-
-main {
-	background-color: blanchedalmond;
-}
-
 .options {
-	background-color: gold;
+	background-color: hsla(52, 89%, 55%, 1);
 }
 
 .filter {
-	background-color: silver;
+	background-color: hsla(187, 67%, 44%, 1);
 }
 
 li:hover {
@@ -45,21 +77,6 @@ li:hover {
 }
 
 .result {
-	background-color: white;
-}
-
-
-/*header of page*/
-header {
-	background-color: grey;
-}
-
-/*footer of page*/
-footer {
-	background-color: lightblue;
-}
-
-.subscribe {
 	background-color: white;
 }
 

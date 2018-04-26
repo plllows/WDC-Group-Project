@@ -11,33 +11,6 @@ body {
 	padding:0;
 }
 
-/*header bar at the top of the page*/
-header {
-	display: flex;
-	height: 50px;
-	padding: 10px;
-	justify-content: space-between;
-}
-
-div.logo {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-div.signup {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-header h1 {display: inline-block; width: 200px; color: yellow;}
-
-header button {
-	display: inline-block;
-	margin:5px;
-}
-
 /*the secondary information bar at the top*/
 div.destination {
 	display:flex;
@@ -45,7 +18,7 @@ div.destination {
 	width:100%;
 	height:200px;
 	padding:10px;
-	background-image: url(example.com);
+	background-image: url(https://images.homedepot-static.com/productImages/92e56dcd-708d-4b5d-a98c-2f10ed8ccdd7/svn/white-niagara-stealth-two-piece-toilets-77001rwhai1-64_1000.jpg);
 	background-position:50% 50%; 
 	background-size:cover; 
 	justify-content: space-between;
@@ -79,6 +52,10 @@ div.destination {
 	text-decoration: none;
 }
 
+.filter {
+	display:none;
+}
+
 .filter ul {
 	list-style-type: none;
 	display: flex;
@@ -88,16 +65,16 @@ div.destination {
 	justify-content: flex-start;
 }
 
+.filter ul li ul {
+	display: none;
+}
+
 .filter ul li, .filter ul li ul li{
 	display: inline-block;
 	text-align: center;
 	margin:0;
 	padding: 15px;
 	text-decoration: none;
-}
-
-.filter ul li ul {
-	display: none;
 }
 
 .sort ul {
@@ -134,7 +111,7 @@ div.destination {
 /*main consists of tiled search results and a map search box*/
 main {
 	display: flex;
-	padding:5px;
+	padding:0;
 	justify-content: space-between;
 	align-items: flex-start;
 	height:auto;
@@ -146,8 +123,11 @@ main {
 	display: grid;
 	width:auto;
 	height:auto;
+	padding: 1% 0;
+	padding-left: 1.5%;
+	padding-right: 0.5%;
 	grid-template-rows: 400px;
-	grid-template-columns: minmax(305px, 400px) minmax(305px, 400px);
+	grid-template-columns: minmax(305px, 370px) minmax(305px, 400px);
 	grid-auto-columns: minmax(305px, 400px) minmax(305px, 400px);
 	grid-auto-rows: 400px;
 	grid-gap: 5px;
@@ -155,16 +135,21 @@ main {
 
 .result {
 	display: flex;
-	margin: 5px;
+	margin: 5px 10px;
 	flex-direction: column;
 	padding:10px;
 	overflow:hidden;
 }
 
+.information .description {
+	height: 47px;
+	overflow: hidden;
+}
+
 .result .image {
 	width:240px;
 	height:160px;
-	border: solid black;
+	border: dotted black;
 	background-image: url(../images/volcano.JPG);
 	background-position:50% 50%; 
 	background-size:cover; 
@@ -214,12 +199,46 @@ main {
 	position: relative;
 }
 
+#pac-input {
+	width: 300px;
+}
+
+#controller .name {
+	width: 300px;
+	margin-bottom: 3px;
+}
+
+#controller .rating {
+	width: 50px;
+	margin-top: 3px;
+	margin-left: 12px;
+	margin-right: 25px;
+}
+
+#controller .price {
+	width: 50px;
+	margin-top: 3px;
+	margin-left: 12px;
+	margin-right: 25px;
+}
+
 #map {
 	margin: 5px;
 	border: solid black;
 	width:490px;
 	height:490px;
 	/*insert google maps here*/
+}
+
+#controller {
+	padding: 5px;
+	margin: 5px;
+	width:490px;
+}
+
+.descriptionInput {
+	width: 480px;
+	height: 150px;
 }
 
 /*a strip below main that shows the navigation for search results*/
@@ -250,68 +269,3 @@ main {
 	textdecoration: none*/
 }
 
-/*footer including mailing list, links, etc*/
-.references {
-	display: flex;
-	padding:30px 0;
-	justify-content: space-around;
-}
-
-.references div h4 {
-	font-size: 20px;
-	padding:0;
-	margin:0;
-}
-
-.subscribe {
-	height: 70px;
-	padding: 20px 10px;
-}
-
-.subscribe h3 {
-	margin:0;
-	padding:0;
-	margin-bottom: 5px;
-}
-.subscribe p {
-	display: inline-block;
-	height:30px;
-	margin:0;
-	padding:0;
-}
-.subscribe input {
-	display: inline-block;
-	height:30px;
-	width:60%;
-	margin:0;
-	padding:0;
-	font-size: 15px;
-}
-
-div.final {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
-
-div.accessibility {
-	display:flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-.copyright {
-	display: inline-block;
-	padding:0;
-	margin:0;
-}
-
-.accessibility .prompt {
-	margin-right: 20px;
-}
-
-.accessibility nav select {
-	display: inline-block;
-	padding: 0;
-	margin: 10px;
-	float: right;
-}
