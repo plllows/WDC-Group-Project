@@ -1,0 +1,25 @@
+Different pieces of content/information your web app will be dealing with and where it should be stored, in what format, etc
+
+1)	Hotel location and description information (including map markers)
+[hotel name, rating, description, location (including GPS coordinates), price] 
+Information will come from the server in the form of a JSON file
+Client will need to submit the name of the destination they’re travelling to (in search)
+For hotels adding properties, the location information will be taken from the map and other information taken from the relevant input fields
+The information will need to be stored on the server 
+Different fields in the JSON file will need to be extracted to create hotel entries in the search results page, markers and information boxes on the map, and pages for each hotel describing their property.
+ 
+2)	Booking histories / management
+[check in/out dates, number of guests, number of rooms, hotel name, review, star rating]
+Information will come from the server in the form of a JSON file
+Client will need to submit their username and password to access the relevant JSON file
+Booking management can be achieved by editing booking details and then sending that data up to the server via a post request to overwrite previous booking information.
+Yes, the information will need to be stored on the server
+For each booking, the data for each booking will need to be extracted and formatted onto the page to allow users to view and modify their booking details
+ 
+3)	User account management
+[username, password, birthday, name, Google, facebook account]
+Information will come from the server in the form of a JSON file
+Client will need to submit their username and password to access the relevant JSON file
+If the user updates their account details, changes can be submitted via a post request to overwrite previous conflicting account settings
+Yes, information will need to be stored on the server
+Account details will need to be extracted and formatted onto the webpage for the user to view and modify
