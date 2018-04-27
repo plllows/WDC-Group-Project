@@ -64,16 +64,12 @@ hsla(12, 75%, 27%, 1);
 	background-color: hsla(52, 89%, 55%, 1);
 }
 
-.filter {
+.filter, .sort, .perpage {
 	background-color: hsla(187, 67%, 44%, 1);
 }
 
 li:hover {
 	background-color: blanchedalmond;
-}
-
-.perPage ul li:hover, .sort ul li:hover {
-	background-color: red;
 }
 
 .result {

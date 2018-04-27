@@ -1,47 +1,8 @@
-/*
-$(document).ready(function() {
-  $("#bookingForm").keydown(function(event){
-    if(event.keyCode == 13) {
-      event.preventDefault();
-      getDestination();
-      submitSearch();
-      return false;
-    }
-  });
-});
-
-function initIndex() {
-	console.log("initialising index...");
-	var d = new Date();
-	var date, month, year;
-	date = d.getDate();
-	if (date<10) {
-		date = "0"+date;
-	}
-	month = d.getMonth()+1;
-	if (month<10) {
-		month = "0"+month;
-	}
-	year = d.getFullYear();
-
-	$("#bookingForm").children(".in").children("input").val(year+"-"+month+"-"+date);
-	$("#bookingForm").children(".out").children("input").val(year+"-"+month+"-"+date);
-}
-
-window.onload = initIndex;
-
-var destination;
-
-function getDestination() {
-	console.log("search submitted");
-	destination = $("#bookingForm").children(".dest").first().children("input").first().val();
-	console.log("destination is: "+$("#bookingForm").children(".dest").first().children("input").first().val());
-	//console.log("destination is: "+destination);
-}
-
-function submitSearch() {
-	$(location).attr('href', './search.html')
-}*/
+let GREEN = "hsla(92, 60%, 35%, 1)";
+let BLUE = "hsla(187, 67%, 44%, 1)";
+let YELLOW = "hsla(52, 89%, 55%, 1)";
+let LBROWN = "hsla(25, 63%, 58%, 1)";
+let DCHOCO = "hsla(12, 75%, 27%, 1)";
 
 var map = null;
 function myMapFunction() {
@@ -240,12 +201,62 @@ function addHotel() {
 	addHotelMarker(testString);
 }
 
+let options = ["filter","sort","perpage"];
+let filters = ["price","rating","facilities","roomtype"];
 
+function showOption(option) {
+	$("."+option).toggle();
+	if ($("."+option).is(':hidden')) {
+		//if an element has been hidden
+		//$("."+option).css("background-colour", BLUE);
+		//hide detailed filters
+		if (option=="filter") {
+			console.log("HIDING THE CHILDREN");
+			filters.forEach(function(element) {
+				$("."+element).hide();
+			});
+		}
+	} else {
+		//hide all other options
+		//$("."+option).css("background-colour","blanchedalmond");
+		options.forEach(function(element) {
+			if (element!=option) {
+				$("."+element).hide();
+			}
+		});
+		//hide filter's children
+		filters.forEach(function(element) {
+			$("."+element).hide();
+		});
+	}
 
-function showFilter() {
-	$(".filter").toggle();
+	//initialising detailed filters to hidden
+	//so showDetailedFilter toggle works as expected
+	if (option=="filter") {
+		filters.forEach(function(element) {
+			$("."+element).hide();
+		});
+	}
 }
 
-function toggleFilter() {
-	$(this).parent().children("ul").toggle();
+function showDetailedFilter(filter) {
+	filters.forEach(function(element) {
+		if ((element==filter)&&($("."+element).is(":visible"))) {
+			//reclicking an option to hide it
+			$("."+element).hide();
+			//$("."+element).css("background-colour",GREEN);
+		} else if (element==filter) {
+			//$("."+filter).css("background-colour","blanchedalmond");
+			$("."+filter).show();
+		} else {
+			$("."+element).hide();
+			//$("."+element).css("background-colour",GREEN);
+		}
+	});
 }
+
+// let GREEN = "hsla(92, 60%, 35%, 1)";
+// let BLUE = "hsla(187, 67%, 44%, 1)";
+// let YELLOW = "hsla(52, 89%, 55%, 1)";
+// let LBROWN = "hsla(25, 63%, 58%, 1)";
+// let DCHOCO = "hsla(12, 75%, 27%, 1)";

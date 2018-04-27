@@ -51,62 +51,70 @@
 		<!--refer to JS playground for implementing the hiding-->
 		<div class="options">
 			<ul>
-				<li onclick="showFilter()">Filter</li>
-				<li>Sort
-					<div class="sort">
-						<ul>
-							<li>Price</li>
-							<li>Rating</li>
-						</ul>
-					</div>
-				</li>
-				<li>Per Page
-					<div class="perPage">
-						<ul>
-							<li>30</li>
-							<li>All</li>
-						</ul>
-					</div>	
-				</li>
+				<li onclick="showOption('filter')">Filter</li>
+				<li onclick="showOption('sort')">Sort</li>
+				<li onclick="showOption('perpage')">Per Page</li>
+			</ul>
+		</div>
+
+		<div class="sort">
+			<ul>
+				<li>Price (high to low)</li>
+				<li>Price (low to high)</li>
+				<li>Rating (highest to lowest)</li>
+			</ul>
+		</div>
+
+		<div class="perpage">
+			<ul>
+				<li>30</li>
+				<li>All</li>
 			</ul>
 		</div>
 
 		<div class="filter">
 			<ul>
-				<li onclick="toggleFilter()">Price
-					<ul>
-						<li>$20-50</li>
-						<li>$50-100</li>
-						<li>$100-300</li>
-						<li>$300+</li>
-					</ul>
-				</li>
-				<li onclick="toggleFilter()">Rating
-					<ul>
-						<li>9.0+</li>
-						<li>8.0-9.0</li>
-						<li>7.0-8.0</li>
-						<li>6.0-7.0</li>
-						<li>6.0-</li>
-					</ul>
-				</li>
-				<li onclick="toggleFilter()">Facilities
-					<ul>
-						<li>Free Wifi</li>
-						<li>Free Breakfast</li>
-						<li>Washer</li>
-						<li>Dryer</li>
-						<li>Airport Shuttle</li>
-					</ul>
-				</li>
-				<li>Room Type
-					<ul>
-						<li>Dorm</li>
-						<li>Private Room</li>
-						<li>Deluxe Suite</li>
-					</ul>
-				</li>
+				<li onclick="showDetailedFilter('price')">Price</li>
+				<li onclick="showDetailedFilter('rating')">Rating</li>
+				<li onclick="showDetailedFilter('facilities')">Facilities</li>
+				<li onclick="showDetailedFilter('roomtype')">Room Type</li>
 			</ul>
+		</div>
+
+		<div class="detailedFilter">
+			<div class="price">
+				<ul>
+					<li>$20-50</li>
+					<li>$50-100</li>
+					<li>$100-300</li>
+					<li>$300+</li>
+				</ul>
+			</div>
+			<div class="rating">
+				<ul>
+					<li>9.0+</li>
+					<li>8.0-9.0</li>
+					<li>7.0-8.0</li>
+					<li>6.0-7.0</li>
+					<li>6.0-</li>
+				</ul>
+			</div>
+			<div class="facilities">
+				<ul >
+					<li>Free Wifi</li>
+					<li>Free Breakfast</li>
+					<li>Washer</li>
+					<li>Dryer</li>
+					<li>Airport Shuttle</li>
+				</ul>
+			</div>
+			<div class="roomtype">
+				<ul>
+					<li>Dorm</li>
+					<li>Private Room</li>
+					<li>Deluxe Suite</li>
+				</ul>
+			</div>
 		</div>
 
 		<!--the main contains a vertical tiled list of search results, as well as a map to the right-->
