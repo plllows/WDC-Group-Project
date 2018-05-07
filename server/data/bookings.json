@@ -1,0 +1,21 @@
+{
+	"username": {
+		"size": 2,
+		"1": {
+			"hotelname":"hotelname",
+			"checkin":"10/10/2010",
+			"checkout":"11/11/2011",
+			"hotelname":"hotelname",
+			"review":"It was ok",
+			"rating":3,
+		},
+		"2": {
+			"hotelname":"hotelname",
+			"checkin":"10/10/2010",
+			"checkout":"11/11/2011",
+			"hotelname":"hotelname",
+			"review":"It was ok",
+			"rating":3,
+		}
+	}
+}
