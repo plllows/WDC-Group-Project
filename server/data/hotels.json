@@ -5,8 +5,10 @@
 		"rating":0,
 		"description":"It is a very nice hotel indeed", 
 		"price": 40, 
-		"Lat":0, 
-		"Lng": 0
+		"position": {
+			"Lat":0,
+			"Lng":0
+		}
 	}
 }
 

@@ -1,5 +1,6 @@
 {
 	"username": {
+		"username":"username",
 		"size": 2,
 		"1": {
 			"hotelname":"hotelname",
@@ -7,7 +8,7 @@
 			"checkout":"11/11/2011",
 			"hotelname":"hotelname",
 			"review":"It was ok",
-			"rating":3,
+			"rating":3
 		},
 		"2": {
 			"hotelname":"hotelname",
@@ -15,7 +16,7 @@
 			"checkout":"11/11/2011",
 			"hotelname":"hotelname",
 			"review":"It was ok",
-			"rating":3,
+			"rating":3
 		}
 	}
 }

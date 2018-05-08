@@ -94,8 +94,7 @@ function defaultMarker() {
 	});
 }
 
-
-
+/*switch for the hotel add functionality*/
 var hasEnoughInfo =false;
 function validateEntry() {
 	var origin = $("#controller");
@@ -120,7 +119,7 @@ function validateEntry() {
 var hotelMarkers = [];
 var hotelMarkerInfo = [];
 
-
+/*adds a hotel marker to the map*/
 function addHotelMarker(text) {
 	console.log("markers placed");
 	var marker = new google.maps.Marker({
@@ -145,13 +144,26 @@ function addHotelMarker(text) {
 	hotelMarkers.push(marker);
 }
 
+/*adds a hotel tile to the current search*/
 function addHotel() {
 	var origin = $("#controller");
 	var name, rating, price, description;
-	name = $(origin).children(".name").val();
-	rating = $(origin).children(".rating").val();
-	price = $(origin).children(".price").val();
-	description = $(origin).children(".descriptionInput").val();
+	name = $(origin).children(".name").val(); 
+	rating = $(origin).children(".rating").val(); 
+	price = $(origin).children(".price").val(); 
+	description = $(origin).children(".descriptionInput").val(); 
+
+	var newHotel = {
+		"name": name,
+		"rating": rating,
+		"price":price,
+		"description":description,
+		//obtains longitude and latitude?
+		"position": map.getCenter()
+	}
+	updateServerHotelsData(newHotel);
+
+	clearNewHotelEntryFields();
 
 	var testString = '<div>\
 	<p>'+name+'</p>\
@@ -201,6 +213,33 @@ function addHotel() {
 	addHotelMarker(testString);
 }
 
+function clearNewHotelEntryFields() {
+	var origin = $("#controller");
+	$(origin).children(".name").val("");
+	$(origin).children(".rating").val("");
+	$(origin).children(".price").val("");
+	$(origin).children(".descriptionInput").val("");
+}
+
+/*append new hotel data to the object on the server*/
+function updateServerHotelsData(newHotel) {
+	console.log("updating server hotel data");
+	var postReq = new XMLHttpRequest();
+	var newEntry = newHotel;
+	console.log(JSON.stringify(newEntry));
+
+	postReq.onreadystatechange = function() {
+		if (this.readyState==4 && this.status==200) {
+			console.log("hotel added");
+		}
+	}
+
+	postReq.open("POST", "/hotels.json", true)
+	postReq.setRequestHeader("Content-type", "application/json");
+	postReq.send(JSON.stringify(newEntry));
+}
+
+/*search options section*/
 let options = ["filter","sort","perpage"];
 let filters = ["price","rating","facilities","roomtype"];
 

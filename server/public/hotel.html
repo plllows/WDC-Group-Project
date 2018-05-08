@@ -6,11 +6,25 @@
 
 <script src="javascripts/hotel_1.js"></script>
 <script src="javascripts/hotel_2.js"></script>
+<script type="text/javascript" src="javascripts/login.js"></script>
 <link href="stylesheets/hotel.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
 
+
 </head>
 <body>
+    <div class="loginbox">
+        <div class="container">
+            <form class="login" action="/login" method="post">
+            
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter username" name="username" id="username"><br />
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter password" name="password" id="password"><br />
+                <input type="submit" value="Login / Signup">
+            </form>
+        </div>
+    </div> 
 
     <!--this div contains the pic of Beebnb-->
     <div class="ab"><img src="images/beebnbpic.jpg" alt="beebnbpic" height="100%" width="100%"/></div>

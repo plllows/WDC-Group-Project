@@ -1,14 +1,3 @@
-$(document).ready(function() {
-  $("#bookingForm").keydown(function(event){
-    if(event.keyCode == 13) {
-      event.preventDefault();
-      getDestination();
-      //submitSearch();
-      return false;
-    }
-  });
-});
-
 function initIndex() {
 	console.log("initialising index...");
 	var d = new Date();
@@ -23,21 +12,10 @@ function initIndex() {
 	}
 	year = d.getFullYear();
 
-	$("#bookingForm").children(".in").children("input").val(year+"-"+month+"-"+date);
-	$("#bookingForm").children(".out").children("input").val(year+"-"+month+"-"+date);
+	$("#bookingForm").children(".in").children("input").attr("placeholder", year+"-"+month+"-"+date);
+	$("#bookingForm").children(".out").children("input").attr("placeholder", year+"-"+month+"-"+date);
 }
 
 window.onload = initIndex;
 
 var destination;
-
-function getDestination() {
-	console.log("search submitted");
-	destination = $("#bookingForm").children(".dest").first().children("input").first().val();
-	console.log("destination is: "+$("#bookingForm").children(".dest").first().children("input").first().val());
-	//console.log("destination is: "+destination);
-}
-
-/*function submitSearch() {
-	$(location).attr('href', './search.html')
-}*/
