@@ -18,6 +18,15 @@ header {
 	background-color: hsla(25, 63%, 58%, 1);
 }
 
+/*sign in box*/
+.loginbox {
+	background-color: hsla(351, 0%, 74%, 0.4);
+}
+
+.loginbox .container {
+	background-color: hsla(92, 60%, 35%, 1);
+}
+
 /*footer of page*/
 footer {
 	background-color: hsla(187, 67%, 44%, 1);

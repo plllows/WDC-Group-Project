@@ -1,5 +1,6 @@
 {
 	"testhotel"	: {
+		"propertyOwner":"hilton",
 		"name":"testhotel",
 		"rating":0,
 		"description":"It is a very nice hotel indeed", 
