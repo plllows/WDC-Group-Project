@@ -1,8 +1,237 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@charset "utf-8";
+
+ul{list-style:none ;}
+
+h1{background: #a64dff;
+   color:White;}
+
+p {margin-top:10px;
+   text-indent:9.3em;
+   font-weight:bold;
+   font-size: 18px;}
+
+img{border:none;
+    align-items: left;}
+
+
+hr{height:10px;border:none;border-top:10px groove skyblue;}
+
+a{blr:expression(this.onFocus=this.blur());outline:none;}
+
+
+#bookingForm {
+
+	display: grid;	
+
+	background-color: rgba(222, 152, 234,0.5);
+
+	grid-template-areas: "dest dest dest"
+
+	"checkIn checkOut guestCount"
+
+	"submit submit submit";
+
+	align-content: space-evenly;
+
+	align-items: stretch;
+
+	justify-content: space-evenly;
+
+	justify-items: stretch;
+
 }
 
-a {
-  color: #00B7FF;
+
+
+#bookingForm div {
+
+	text-align: center;
+
+	padding: 10px; 
+
+	margin: 0;
+
+}
+
+
+#map {
+        width: 900px;
+        height: 200px;
+        background-color: grey;
+       
+      }
+
+
+#houseone {
+        width: 350px;
+        height: 130px;
+        background-color: #FF8247;
+        float:right;
+       
+      }
+
+#housetwo {
+        width: 350px;
+        height: 130px;
+        background-color: #FF7256;
+        float:right;
+       
+      }
+#housethree {
+        width: 350px;
+        height: 130px;
+        background-color: #FF6347;
+        float:right;
+       
+      }
+
+
+
+div.tagbox {
+        width: 900px;
+        height: 200px;
+        background-color:#FFC125;
+       
+      }
+
+
+#bookingForm div input {display: inline-block; margin: 0 auto;}
+
+#bookingForm div p {display: inline-block; margin: 0 auto; }
+
+div.dest {grid-area: dest;}
+
+div.in {grid-area: checkIn;}
+
+div.out {grid-area: checkOut;}
+
+div.manCount {grid-area: guestCount;}
+
+div.submit {grid-area: submit;}
+
+div.dest input {width: 100%; font-size: 25px}
+
+div.submit input {font-size: 15px;}
+
+div.hotelinfobox {float:left;width:900px;font-family: sans-serif; font-size: 0.8em;line-height:23px;}
+
+#hrline{       width: 6px;
+               height: 1000px;
+               background-color: grey;
+               float:left;}
+
+
+
+div.housechoice{float: right;}
+
+.banner-box{min-width:1000px;height:530px;position:relative;overflow:hidden;}
+
+.banner-box .thepics{ width:100% !important;}
+
+.banner-box .thepics li .m-width {width:1000px;margin:0 auto;overflow:hidden;}
+
+.banner-box .thepics li{width:100% !important;height:530px;}
+
+.banner-box .thepics li a{display:block;background-size:auto;}
+
+.banner-btn{width:1100px;position:absolute;top:210px;left:50%;margin-left:-650px;}
+
+.banner-btn a{display:block;width:49px;height:104px;position:absolute;top:0;filter:alpha(opacity=40);-moz-opacity:0.4;-khtml-opacity:0.4;opacity:0.4;}
+
+.banner-btn a.prev{left:160px;background:url(../images/foot.png) no-repeat 0 0;} 
+
+.banner-btn a.next{right:-40px;background:url(../images/foot.png) no-repeat -49px 0;}
+
+.banner-box .hd {position:absolute;top:270px;left:537px;}
+
+.banner-box .hd ul li{width:12px;height:12px;border-radius :50%;text-indent:-9999px;margin-right:20px;background:#ccc;float:left;cursor:pointer;}
+
+.banner-box .hd ul li.on{background:#DA324D;}
+
+
+.persuasion {
+	display: flex;
+	background-color: rgb(36, 255, 197);
+	width: 100%;
+	height: auto;
+	padding: 50px 0;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.perk {
+	text-align: center;
+	width:300px;
+	height:250px;
+}
+
+/*footer including mailing list, links, etc*/
+footer {
+	background-color: lightblue;
+}
+
+.references {
+	display: flex;
+	padding:30px 0;
+	justify-content: space-around;
+}
+
+.references div h4 {
+	font-size: 20px;
+	padding:0;
+	margin:0;
+}
+
+.subscribe {
+	background-color: white;
+	height: 70px;
+	padding: 20px 10px;
+}
+
+.subscribe h3 {
+	margin:0;
+	padding:0;
+	margin-bottom: 5px;
+}
+.subscribe p {
+	display: inline-block;
+	height:30px;
+	margin:0;
+	padding:0;
+}
+.subscribe input {
+	display: inline-block;
+	height:30px;
+	width:60%;
+	margin:0;
+	padding:0;
+	font-size: 15px;
+}
+
+div.final {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+div.accessibility {
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.copyright {
+	display: inline-block;
+	padding:0;
+	margin:0;
+}
+
+.accessibility .prompt {
+	margin-right: 20px;
+}
+
+.accessibility nav select {
+	display: inline-block;
+	padding: 0;
+	margin: 10px;
+	float: right;
 }
