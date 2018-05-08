@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <title>Beebnb.com</title>
 
-<script src="javascripts/hotel_1.js"></script>
-<script src="javascripts/hotel_2.js"></script>
-<script type="text/javascript" src="javascripts/login.js"></script>
-<link href="stylesheets/hotel.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
-
+<script src="js/jquery1.js"></script>
+<script src="js/jquery2.js"></script>
+<script src="js/hotelsmap.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/colours.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-    <div class="loginbox">
+
+     <div class="loginbox">
         <div class="container">
             <form class="login" action="/login" method="post">
             
@@ -147,10 +147,34 @@ $(document).ready(function(){
 </script>
 <hr>
 
+<!--the hotel's map -->
+<div id="map"></div>
+
+       <script async defer
+       src="https://maps.googleapis.com/maps/api/js?&callback=initMap">
+       </script>
+
+<div id="hrline"></div>
+
+
+
+<div class="housechoice"><h4>There are varity of houses that you can choose!</h4>
+<div id="houseone"><h4>The one bedroom house:</h4><button>Book</button></div><br>
+<div id="housetwo"><h4>The two bedroom house:</h4><button>Book</button></div><br>
+<div id="housethree"><h4>The three bedroom house:</h4><button>Book</button></div>
+
+
+</div>
+
+
+
 <!--this div contains the informations about hotel -->
-<div id="hotel description">  
-       <img src="images/map.png"  alt="map"  height="150" width="400" /><br>
-       Experience Bella Hotel Apartments<br>
+<div class="hotelinfobox">  
+
+
+       
+       <h3>The information about the hotel:</h3>
+
        Located just 300 m from the Crown Casino, Experience Bella Hotel Apartments is ideally located to indulge in the restaurants, bars and shopping at Southbank. Guests enjoy free WiFi and free local and national phone calls.<br>
 
        Experience Bella Hotel Apartments is located within a 15-minute walk of the Melbourne Convention Centre and the DFO Shopping Centre. Eureka Tower is 600 m from Bella Apartments. The nearest airport is Tullamarine Airport, 20 km from the property.<br>
@@ -160,16 +184,117 @@ $(document).ready(function(){
        Guests can enjoy a work out in the fitness centre.<br>
        <hr>
 
-       Policy:<br>
-       Check-in and check-out:Check-in time: after 14:00 Check-out time: Before 12:00<hr>
+       <h3>Policy:</h3>
+       Check-in and check-out:Check-in time: after 14:00 Check-out time: Before 12:00<br>
        • Children are allowed in the hotel<br>
        • Guests under the age of 18 cannot be accommodated without a guardian<br>
        • The extra bed policy and the number of children can be found in your selected room policy. If you exceed the room-limited number, additional fees may apply. Any request made must be confirmed by the hotel. All service details are subject to the hotel's notification.<hr>
-       Available payment methods:<br>
-       <img src="images/payment.png" alt="payment" height="60" width="800" />
 
-</div>
-<a href="./search.html">return to search page</a>
+       <div class="tagbox">Some tags for this hotel!<br>
+
+        Andy: The house is really good!!!!<br>
+
+        Nick: The food is really good!!!<br>
+
+        Tim: I love the house's location!<br>
+
+
+       </div>
+
+
+       <h3>Available payment methods:</h3>
+       <img src="images/payment.png" alt="payment" height="60" width="800" /></div>
+
+
+
+
+
+       <!--A bar adversiting reasons users should book with us-->
+        <section class="persuasion">
+            <div class="perk">
+                <h3>No Commission</h3>
+                <i class="fas fa-ambulance fa-5x"></i>              
+                <p>We don't make any commission on your bookings, so you can get the best price for your stay <a href="link.com">find our more</a></p>
+            </div>
+
+            <div class="perk">
+                <h3>Free Bookings</h3>
+                <i class="fas fa-ambulance fa-5x"></i>              
+                <p>We're not going to make a payment portal so you <i>can't actually pay</i> so yeah :D <a href="link.com">find out more</a></p>
+            </div>
+
+            <div class="perk">
+                <h3>24/7 Customer Service</h3>
+                <i class="fas fa-ambulance fa-5x"></i>              
+                <p>We can offer this service although we do not plan to put our contact details onto the site so... <a href="link.com">don't call us please</a></p>
+            </div>
+        </section>
+
+        <!--extra links, subscription prompt, copyright and accessibility-->
+        <footer>
+            <div class="references">
+                <div>
+                    <h4>About Us:</h4>
+                    <ul>
+                        <li>Affiliates</li>
+                        <li>Our Mission</li>
+                        <li>Hotel Sign Up</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Join our team!</h4>
+                    <ul>
+                        <li>Careers</li>
+                        <li>Our Offices</li>
+                        <li>Career Outcomes</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Useful reading:</h4>
+                    <ul>
+                        <li>Privacy policy</li>
+                        <li>Insurance</li>
+                        <li>Travel and Safety</li>
+                        <li>Blogs</li>
+                    </ul>
+                </div>
+                <div>
+                <h4>Find us on Social Media:</h4>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+            </div>  
+
+            <div class="subscribe">
+                <h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
+                <p>Join our VIP Club!:</p>
+                <input type="text" name="email"><br>
+            </div>  
+
+            <div class="final">
+                <p class="copyright">&#169; BeeBNB 2018</p>
+                
+                <div class="accessibility">
+                    <p class="prompt">Select Currency/Language:</p>
+                    <nav>
+                        <select name="Select Currency:">
+                            <option value="1">USD</option>
+                            <option value="2">AUD</option>  
+                            <option value="3">dong</option>
+                        </select>
+                            <select name="Select Language:">
+                            <option value="1">English</option>
+                            <option value="2">British</option>
+                            <option value="3">American</option>
+                        </select>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+        <a href="./search.html">return to search page</a>
         <a href="./index.html">return to index page</a>
         <a href="./hotel.html">return to hotel page</a>
         <a href="./account.html">return to account page</a>
