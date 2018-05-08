@@ -88,7 +88,10 @@ router.post('/search', function(req, res) {
 	res.redirect('/search?referrer='+req.body.destination);
 });
 
-
-
+/*load search with the hotels we have by default*/
+router.get('/hotels.json', function(req, res) {
+	console.log(hotels);
+	res.send(JSON.stringify(hotels));
+});
 
 module.exports = router;

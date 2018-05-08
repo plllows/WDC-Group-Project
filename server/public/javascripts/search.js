@@ -5,6 +5,113 @@ let LBROWN = "hsla(25, 63%, 58%, 1)";
 let DCHOCO = "hsla(12, 75%, 27%, 1)";
 
 var map = null;
+
+var hotels = {};
+
+function getHotels() {
+	console.log("get hotels called");
+	var getReq = new XMLHttpRequest();
+	getReq.open("GET", '/hotels.json', true);
+	
+	getReq.onreadystatechange = function() {
+		if (this.readyState==4 && this.status==200) {
+			console.log("response text:"+getReq.responseText);
+			hotels=JSON.parse(getReq.responseText);
+			console.log(hotels);
+			console.log(typeof hotels);
+			initialiseHotels();
+		} else {}/*code for other states or errors*/
+	}; 
+
+	getReq.send(); //if data is being sent, it would be included in call
+}
+
+function initialiseHotels() {
+	console.log("perhaps the key is missing?");
+	// for (var key in hotels) {
+	//     // check if the property/key is defined in the object itself, not in parent
+	//     if (hotels.hasOwnProperty(key)) {           
+	//         console.log(key, hotels[key]);
+	//     }
+	// }
+	for (var key in hotels) {
+		/*for each hotel*/
+		console.log("adding marker for "+key);
+		console.log(hotels[key].position);
+		var marker = new google.maps.Marker({
+			position: hotels[key].position,
+			map: map,
+			label: hotels[key].name
+		});
+
+		//create a new infowindow object
+		var infowindow = new google.maps.InfoWindow({
+			content: hotels[key].description
+		});
+		//hotelMarkerInfo.push(infowindow);
+
+		marker.addListener('click', function() {
+			infowindow.open(map, this);
+		})
+
+		hotelMarkers.push(marker);
+
+		/*and now add the tiles*/
+		var name, rating, price, description;
+		name = hotels[key].name;
+		rating = hotels[key].rating;
+		price = hotels[key].price;
+		description =hotels[key].description;
+
+		var testString = '<div>\
+		<p>'+name+'</p>\
+		<p>Rating: '+rating+' by ___ guests</p>\
+		<p>Rooms from '+price+'</p>\
+		<p><a href="example.com">See more...</a></p>\
+		</div>'
+
+		//outer div
+		var newRes = $('<div class="result"></div>');
+		//volcano image
+		var newImg = $('<div class="image"></div>');
+		newRes.append(newImg);
+		//main body
+		var newInfo = $('<div class="information"></div>');
+		//hotel name
+		var newHeader = $("<h3>"+name+"</h3>");
+		newInfo.append(newHeader);
+		//contains p elements: rating and how many reviews
+		var newReview = $('<div class="review"></div>');
+		var newRating = $("<p class=\"rating\">"+rating+"</p>");
+		var newReviewCount = $("<p><a href=\"reviews.com\">___ reviews</a></p>");
+		newReview.append(newRating); newReview.append(newReviewCount);
+		newInfo.append(newReview);
+		//location of the hotel
+		var newLocation = $("<p>Hotel, Somewhere</p>");
+		newInfo.append(newLocation);
+		//main description
+		var newDescription =$('<p class="description"><i>'+description+'</i></p>');
+		newInfo.append(newDescription);
+
+		//price
+		var newPrice =$('<div>Rooms start at $<span class="price">'+price+'</span>/night</div>');
+		newInfo.append(newPrice);
+		//facilities and amenities are default
+		var newFacilities = $('<div class="amenities">\
+								<p>Facilities:</p>\
+								<ul>\
+									<li><i class="fas fa-wifi"></i></li>\
+									<li><i class="fas fa-bath"></i></li>\
+								</ul>\
+							</div>');
+		newInfo.append(newFacilities);
+		newRes.append(newInfo);		
+
+		$(".reslist").append(newRes);	
+	}
+}
+
+
 function myMapFunction() {
 	//options
 	var mapOptions = {
@@ -82,6 +189,8 @@ function myMapFunction() {
 		map.fitBounds(bounds);
 	});
 	console.log("places should have changed");
+	getHotels();
+	//initialiseHotels();
 }
 
 function defaultMarker() {
