@@ -36,27 +36,6 @@ function initialiseHotels() {
 	// }
 	for (var key in hotels) {
 		/*for each hotel*/
-		console.log("adding marker for "+key);
-		console.log(hotels[key].position);
-		var marker = new google.maps.Marker({
-			position: hotels[key].position,
-			map: map,
-			label: hotels[key].name
-		});
-
-		//create a new infowindow object
-		var infowindow = new google.maps.InfoWindow({
-			content: hotels[key].description
-		});
-		//hotelMarkerInfo.push(infowindow);
-
-		marker.addListener('click', function() {
-			infowindow.open(map, this);
-		})
-
-		hotelMarkers.push(marker);
-
-		/*and now add the tiles*/
 		var name, rating, price, description;
 		name = hotels[key].name;
 		rating = hotels[key].rating;
@@ -69,6 +48,29 @@ function initialiseHotels() {
 		<p>Rooms from '+price+'</p>\
 		<p><a href="example.com">See more...</a></p>\
 		</div>'
+
+		console.log("adding marker for "+key);
+		console.log(hotels[key].position);
+		var marker = new google.maps.Marker({
+			position: hotels[key].position,
+			map: map,
+			label: hotels[key].name
+		});
+
+		//create a new infowindow object
+		var infowindow = new google.maps.InfoWindow({
+			content: testString
+		});
+		//hotelMarkerInfo.push(infowindow);
+
+		marker.addListener('click', function() {
+			infowindow.open(map, this);
+		})
+
+		hotelMarkers.push(marker);
+
+		/*and now add the tiles*/
+		
 
 		//outer div
 		var newRes = $('<div class="result"></div>');
