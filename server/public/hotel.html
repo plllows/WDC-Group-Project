@@ -7,9 +7,12 @@
 <script src="javascripts/hotel_1.js"></script>
 <script src="javascripts/hotel_2.js"></script>
 <script src="javascripts/hotelsmap.js"></script>
+<script src="javascripts/reviewsajax.js"></script>
+<script src="data/roominf.json"></script>
 <link href="stylesheets/hotel.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 <link href="stylesheets/colours.css" rel="stylesheet" type="text/css">
+<link href="stylesheets/reviewsbox.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -160,7 +163,11 @@ $(document).ready(function(){
 
 
 <div class="housechoice"><h4>There are varity of houses that you can choose!</h4>
-<div id="houseone"><h4>The one bedroom house:</h4><button>Book</button></div><br>
+<div id="houseone"><h4>The one bedroom house:</h4><p>Room left: <span id="hleft"></span><br> 
+                                                     Room price:<span id="hprice"></span></p>
+
+
+	<button>Book</button></div><br>
 <div id="housetwo"><h4>The two bedroom house:</h4><button>Book</button></div><br>
 <div id="housethree"><h4>The three bedroom house:</h4><button>Book</button></div>
 
@@ -200,15 +207,51 @@ $(document).ready(function(){
         Tim: I love the house's location!<br>
 
 
+       <div id="myDiv"><h2>Clicking this to show the comments </h2></div>
+       <button type="button" onclick="loadXMLDoc()">Click</button>
+
+
        </div>
+
+
+
+      <form id="revbox" action="" method="post" class="STYLE-NAME">
+      <h1 id="contactfrom">Contact Form
+      </h1>
+      <label>
+      <span>Your Name :</span>
+      <input id="name" type="text" name="name" placeholder="The Name" />
+      </label>
+
+      <label>
+      <span>Your Email :</span>
+      <input id="email" type="email" name="email" placeholder="The Email Address" />
+      </label>
+
+      <label>
+      <span>Message :</span>
+      <textarea id="message" name="message" placeholder="The Message"></textarea>
+      </label>
+      <label>
+
+      <span>Subject :</span><select name="selection">
+      <option value="Complaint">Complaint</option>
+      <option value="Common Question">Common Question</option>
+      </select>
+      </label>
+      <label>
+      <span>&nbsp;</span><br>
+      
+      <input type="button" class="button" value="Send" />
+      </label>
+      </form>
+
+     <br>
+
 
 
        <h3>Available payment methods:</h3>
        <img src="images/payment.png" alt="payment" height="60" width="800" /></div>
-
-
-
-
 
        <!--A bar adversiting reasons users should book with us-->
         <section class="persuasion">
