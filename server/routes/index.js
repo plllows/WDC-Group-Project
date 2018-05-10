@@ -79,12 +79,25 @@ router.post('/hotels.json', function(req, res) {
  	console.log("login failed");
  });
 
+/*contains info from submitted booking form*/
+var bookingFormDetails = {};
+
 /*booking form submission redirects to the search page*/
 router.post('/search', function(req, res) {
 	console.log(req.body.destination);
 	console.log(req.body.checkin);
 	console.log(req.body.checkout);
 	console.log(req.body.guestCount);
+	//console.log(typeof(req.body.destination));
+	var temp = {};
+	temp["destination"] = req.body.destination;
+	temp["checkin"] = req.body.checkin;
+	temp["checkout"] = req.body.checkout;
+	temp["guestCount"] = req.body.guestCount;
+	bookingFormDetails = temp;
+	
+	console.log(JSON.stringify(bookingFormDetails));
+
 	res.redirect('/search?referrer='+req.body.destination);
 });
 

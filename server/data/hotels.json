@@ -6,8 +6,8 @@
 		"description":"It is a very nice hotel indeed", 
 		"price": 40, 
 		"position": {
-			"Lat":0,
-			"Lng":0
+			"lat":0,
+			"lng":0
 		}
 	}
 }
