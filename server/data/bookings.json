@@ -9,6 +9,7 @@
 			"hotelname":"hotelname",
 			"review":"It was ok",
 			"rating":3
+			"numofrooms":3
 		},
 		"2": {
 			"hotelname":"hotelname",
@@ -17,6 +18,7 @@
 			"hotelname":"hotelname",
 			"review":"It was ok",
 			"rating":3
+			"numofrooms":2
 		}
 	}
 }

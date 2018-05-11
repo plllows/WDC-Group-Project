@@ -64,7 +64,7 @@ a{blr:expression(this.onFocus=this.blur());outline:none;}
 
 #houseone {
         width: 350px;
-        height: 130px;
+        height: 150px;
         background-color: #FF8247;
         float:right;
        
@@ -72,14 +72,14 @@ a{blr:expression(this.onFocus=this.blur());outline:none;}
 
 #housetwo {
         width: 350px;
-        height: 130px;
+        height: 150px;
         background-color: #FF7256;
         float:right;
        
       }
 #housethree {
         width: 350px;
-        height: 130px;
+        height: 150px;
         background-color: #FF6347;
         float:right;
        
