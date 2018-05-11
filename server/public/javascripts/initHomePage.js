@@ -12,10 +12,12 @@ function initIndex() {
 	}
 	year = d.getFullYear();
 
-	$("#bookingForm").children(".in").children("input").attr("placeholder", year+"-"+month+"-"+date);
-	$("#bookingForm").children(".out").children("input").attr("placeholder", year+"-"+month+"-"+date);
+	console.log("ph: "+year+"-"+month+"-"+date);
+
+	$("#bookingForm").children(".in").children("input").first().val(year+"-"+month+"-"+date);
+	$("#bookingForm").children(".out").children("input").first().val(year+"-"+month+"-"+date);
+
+	console.log("changed button attributes");
 }
 
 window.onload = initIndex;
-
-var destination;

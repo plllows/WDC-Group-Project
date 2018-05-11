@@ -7,9 +7,9 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
 		<link rel="stylesheet" type="text/css" href="stylesheets/headerfooter.css">
 		<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="javascripts/jquery.js"></script>
-		<script type="text/javascript" src="javascripts/search.js"></script>
-		<script type="text/javascript" src="javascripts/login.js"></script>
+		<script   src="javascripts/jquery.js"></script>
+		<script src="javascripts/search.js"></script>
+		<script  src="javascripts/login.js"></script>
 		
 	</head>
 	<body>
@@ -17,18 +17,18 @@
 		<header>
 			<div class="logo">
 				<img alt="bee" width="30" src="https://i.pinimg.com/originals/5c/3f/11/5c3f117de062db7f39be2c13e4e8e8c5.png">
-				<h1>BeeBNB</h1>
+				<h1>BeeBNB</h1> 
 			</div>
 			<div class="signup">
-				<button onclick="login()" type="button" name="Log in!">Log in/Sign up!</button>
-				<button disabled onclick="logout()" type="button" name="Log in!">Log out!</button>
-				<button disabled onclick="account()" type="button" name="Log in!">Your profile</button>
+				<button id="login" onclick="login()" type="button" name="Login">Log in/Sign up!</button>
+				<button  id="profile" onclick="location.href ='/accessAccount?ref='+window.location.pathname" type="button" name="Profile">Your profile</button>
 			</div>
 		</header>
 
 		<div class="loginbox">
 			<div class="container">
-				<form class="login" action="/" method="post">
+				<h2 style="text-align: center">Sign in!</h2>
+				<form class="login" action="/login" method="post">
 	 			
 	 				<label for="username">Username</label>
 	     			<input type="text" placeholder="Enter username" name="username" id="username"><br />
@@ -36,6 +36,10 @@
 	      			<input type="password" placeholder="Enter password" name="password" id="password"><br />
 	     			<input type="submit" value="Login / Signup">
 	 			</form>
+	 			<hr>
+     			<input type="text" placeholder="Google placeholder" name="username" id="GoogleAuth"><br />
+     			<hr>
+	 			<button type="button" onclick="login()">Cancel</button>
 			</div>
     	</div> 
 
@@ -135,89 +139,6 @@
 		<!--the main contains a vertical tiled list of search results, as well as a map to the right-->
 		<main id="searchMain">
 			<section class="reslist">
-				<div class="result">
-					<div class="image"></div>
-					<div class="information">
-						<h3><a href='/hotel'>Generic Hotel<a></h3>
-						<div class="review">
-							<p class="rating">7.5</p> 
-							<p><a href="reviews.com">100 reviews</a></p>
-						</div>
-						<p>Hotel, Sydney Central</p>
-						<p class="description"><i>A beautiful hotel within walking distance of the famed Sydney Harbour. Watch the stunning sunsets from the open-air roof bar.</i></p>
-						<p>Rooms start at $<span class="price">80</span>/night</p>
-						<div class="amenities">
-							<p>Facilities:</p>
-							<ul>
-								<li><i class="fas fa-wifi"></i></li>
-								<li><i class="fas fa-bath"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<!-- <div class="result">
-					<div class="image"></div>
-					<div class="information">
-						<h3>BAD Hotel!</h3>
-						<div class="review">
-							<p class="rating">0.5</p> 
-							<p><a href="reviews.com">100 reviews</a></p>
-						</div>
-						<p>Hotel, Sydney Central</p>
-						<p class="description"><i>This hotel is so bad its average user reviews is just higher than my GPA last semester. However, due to the high demand for accomodation, this hotel still gets customers</i></p>
-						<p>Rooms start at $<span class="price">5</span>/night</p>
-						<div class="amenities">
-							<p>Facilities:</p>
-							<ul>
-								<li><i class="fas fa-wifi"></i></li>
-								<li><i class="fas fa-bath"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div> -->
-
-				<!-- <div class="result">
-					<div class="image"></div>
-					<div class="information">
-						<h3>Awesome Hotel!</h3>
-						<div class="review">
-							<p class="rating">7.5</p> 
-							<p><a href="reviews.com">1000 reviews</a></p>
-						</div>
-						<p>Hotel, Sydney Central</p>
-						<p class="description"><i>Hotel for Divas. This is where celebrities stay when they visit Australia! You could run into Obama in the halls!</i></p>
-						<p>Rooms start at $<span class="price">800</span>/night</p>
-						<div class="amenities">
-							<p>Facilities:</p>
-							<ul>
-								<li><i class="fas fa-wifi"></i></li>
-								<li><i class="fas fa-bath"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div> -->
-
-				<!-- <div class="result">
-					<div class="image"></div>
-					<div class="information">
-						<h3>Friendly Hotel!</h3>
-						<div class="review">
-							<p class="rating">7.5</p> 
-							<p><a href="reviews.com">100 reviews</a></p>
-						</div>
-						<p>Hotel, Sydney Central</p>
-						<p class="description"><i>This hotel doesn't have much to distinguish it from all the other hotels in Sydney - except for its friendliness! Best most friendly hotel!</i></p>
-						<p>Rooms start at $<span class="price">80</span>/night</p>
-						<div class="amenities">
-							<p>Facilities:</p>
-							<ul>
-								<li><i class="fas fa-wifi"></i></li>
-								<li><i class="fas fa-bath"></i></li>
-							</ul>
-						</div>
-					</div> -->
-				</div>
 			</section>
 
 			<div class="mapContainer">
@@ -229,7 +150,7 @@
 				</div>
 				<div id="controller">
 					<input id="pac-input" type="text" class="controls" placeholder="Search Location">
-					<button disabled="true" onclick="addHotel()">Place Marker/Add Hotel</button>
+					<button disabled onclick="addHotel()">Place Marker/Add Hotel</button>
 					<hr>
 					<span>Property name:</span>
 					<input oninput="validateEntry()" class="name" type="text" placeholder="Name of Hotel">

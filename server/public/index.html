@@ -7,10 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
 		<link rel="stylesheet" type="text/css" href="stylesheets/headerfooter.css">
 		<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="javascripts/jquery.js"></script>
-		<script type="text/javascript" src="javascripts/search.js"></script>
-		<script type="text/javascript" src="javascripts/initHomePage.js"></script>
-		<script type="text/javascript" src="javascripts/login.js"></script>
+		<script  src="javascripts/jquery.js"></script>
+		<script  src="javascripts/search.js"></script>
+		<script  src="javascripts/initHomePage.js"></script>
+		<script src="javascripts/login.js"></script>
 	</head>
 	<body>
 
@@ -21,9 +21,8 @@
 				<h1>BeeBNB</h1>
 			</div>
 			<div class="signup">
-				<button onclick="login()" type="button" name="Log in!">Log in/Sign up!</button>
-				<button disabled onclick="logout()" type="button" name="Log in!">Log out!</button>
-				<button disabled onclick="account()" type="button" name="Log in!">Your profile</button>
+				<button id="login" onclick="login()" type="button" name="Login">Log in/Sign up!</button>
+				<button  id="profile" onclick="location.href ='/accessAccount?ref='+window.location.pathname" type="button" name="Profile">Your profile</button>
 			</div>
 		</header>
 
@@ -51,25 +50,25 @@
 				<div class="dest">
 					<p>Destination</p>
 					<br>
-					<input type="text" label="destination" name="destination" placeholder="enter destination...">
+					<input type="text" name="destination" placeholder="enter destination...">
 				</div>
 				<div class="in">
 					<p>Check in:</p>
 					<br>
-					<input class="dateSelect" type="date" label="checkin" name="checkin" min="2018-01-01" max="2020-01-01">
+					<input class="dateSelect" type="date" name="checkin" min="2018-01-01" max="2020-01-01">
 				</div>
 				<div class="out">
 					<p>Check out:</p>
 					<br>
-					<input class="dateSelect" type="date" label="checkout" name="checkout" min="2018-01-01" max="2020-01-01">
+					<input class="dateSelect" type="date" name="checkout" min="2018-01-01" max="2020-01-01">
 				</div>
 				<div class="manCount">
 					<p>Guests:</p>
 					<br>
-					<input type="number" min="1" max="20" label="guestCount" placeholder="guests" name="guestCount">
+					<input type="number" min="1" max="20" placeholder="guests" name="guestCount">
 				</div>
 				<div class="submit">
-					<input type="submit" placeholder="guests" name="submit form" placeholder="Find where you should BEE!">
+					<input type="submit" name="submit form" value="Find where you should BEE!">
 				</div>
 			</form>
 		</main>
@@ -79,19 +78,19 @@
 			<div class="article">
 				<h3>Travel to this country!</h3>
 				<div class="image"></div>
-				<p>You'll love the nothern neighbour of this prospering East Asian country! Glorious leader's warmth will make you happy! Best most happy country! <a href="link.com">read more</a></p>
+				<p>You'll love the nothern neighbour of this prospering East Asian country! Glorious leader's warmth will make you happy! Best most happy country! <a>read more</a></p>
 			</div>
 
 			<div class="article">
 				<h3>Here is nice food you can try!</h3>
 				<div class="image"></div>
-				<p>Nona always makes YUM spaghetti! Very very delicious! Noodles handmade! Tomatoes home grown! Fasta Pasta ain't got s**t on Nona! <a href="link.com">read more</a></p>
+				<p>Nona always makes YUM spaghetti! Very very delicious! Noodles handmade! Tomatoes home grown! Fasta Pasta ain't got s**t on Nona! <a>read more</a></p>
 			</div>
 
 			<div class="article">
 				<h3>Come to Australia!</h3>
 				<div class="image"></div>
-				<p>Our insurance companies need ur cash! Beautiful wildlife and stuff for you to see... <a href="link.com">read more</a></p>
+				<p>Our insurance companies need ur cash! Beautiful wildlife and stuff for you to see... <a >read more</a></p>
 			</div>
 		</section>
 
@@ -100,19 +99,19 @@
 			<div class="perk">
 				<h3>No Commission</h3>
 				<i class="fas fa-ambulance fa-5x"></i>				
-				<p>We don't make any commission on your bookings, so you can get the best price for your stay <a href="link.com">find our more</a></p>
+				<p>We don't make any commission on your bookings, so you can get the best price for your stay <a >find our more</a></p>
 			</div>
 
 			<div class="perk">
 				<h3>Free Bookings</h3>
 				<i class="fas fa-ambulance fa-5x"></i>				
-				<p>We're not going to make a payment portal so you <i>can't actually pay</i> so yeah :D <a href="link.com">find out more</a></p>
+				<p>We're not going to make a payment portal so you <i>can't actually pay</i> so yeah :D <a >find out more</a></p>
 			</div>
 
 			<div class="perk">
 				<h3>24/7 Customer Service</h3>
 				<i class="fas fa-ambulance fa-5x"></i>				
-				<p>We can offer this service although we do not plan to put our contact details onto the site so... <a href="link.com">don't call us please</a></p>
+				<p>We can offer this service although we do not plan to put our contact details onto the site so... <a >don't call us please</a></p>
 			</div>
 		</section>
 

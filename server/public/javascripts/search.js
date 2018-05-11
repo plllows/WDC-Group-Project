@@ -1,8 +1,9 @@
-let GREEN = "hsla(92, 60%, 35%, 1)";
-let BLUE = "hsla(187, 67%, 44%, 1)";
-let YELLOW = "hsla(52, 89%, 55%, 1)";
-let LBROWN = "hsla(25, 63%, 58%, 1)";
-let DCHOCO = "hsla(12, 75%, 27%, 1)";
+/*jshint esversion: 6 */
+// let GREEN = "hsla(92, 60%, 35%, 1)";
+// let BLUE = "hsla(187, 67%, 44%, 1)";
+// let YELLOW = "hsla(52, 89%, 55%, 1)";
+// let LBROWN = "hsla(25, 63%, 58%, 1)";
+// let DCHOCO = "hsla(12, 75%, 27%, 1)";
 
 var map = null;
 
@@ -34,7 +35,13 @@ function initialiseHotels() {
 	//         console.log(key, hotels[key]);
 	//     }
 	// }
+
+	function openWindow() {
+		infowindow.open(map, this);
+	}
+	
 	for (var key in hotels) {
+		/*BIG*/if (true) {
 		/*for each hotel*/
 		var name, rating, price, description;
 		name = hotels[key].name;
@@ -42,12 +49,12 @@ function initialiseHotels() {
 		price = hotels[key].price;
 		description =hotels[key].description;
 
-		var testString = '<div>\
-		<p>'+name+'</p>\
-		<p>Rating: '+rating+' by ___ guests</p>\
-		<p>Rooms from '+price+'</p>\
-		<p><a href="example.com">See more...</a></p>\
-		</div>'
+		var testString = `<div>
+		<p>'+name+'</p>
+		<p>Rating: '+rating+' by ___ guests</p>
+		<p>Rooms from '+price+'</p>
+		<p><a href="example.com">See more...</a></p>
+		</div>`;
 
 		console.log("adding marker for "+key);
 		console.log(hotels[key].position);
@@ -63,14 +70,11 @@ function initialiseHotels() {
 		});
 		//hotelMarkerInfo.push(infowindow);
 
-		marker.addListener('click', function() {
-			infowindow.open(map, this);
-		})
+		marker.addListener('click', openWindow);
 
 		hotelMarkers.push(marker);
 
 		/*and now add the tiles*/
-		
 
 		//outer div
 		var newRes = $('<div class="result"></div>');
@@ -80,12 +84,12 @@ function initialiseHotels() {
 		//main body
 		var newInfo = $('<div class="information"></div>');
 		//hotel name
-		var newHeader = $("<h3>"+name+"</h3>");
+		var newHeader = $("<h3><a href='/hotel?property="+name+"&ref="+window.location.pathname+"'>"+name+"</a></h3>");
 		newInfo.append(newHeader);
 		//contains p elements: rating and how many reviews
 		var newReview = $('<div class="review"></div>');
 		var newRating = $("<p class=\"rating\">"+rating+"</p>");
-		var newReviewCount = $("<p><a href=\"reviews.com\">___ reviews</a></p>");
+		var newReviewCount = $("<p><a >___ reviews</a></p>");
 		newReview.append(newRating); newReview.append(newReviewCount);
 		newInfo.append(newReview);
 		//location of the hotel
@@ -99,17 +103,18 @@ function initialiseHotels() {
 		var newPrice =$('<div>Rooms start at $<span class="price">'+price+'</span>/night</div>');
 		newInfo.append(newPrice);
 		//facilities and amenities are default
-		var newFacilities = $('<div class="amenities">\
-								<p>Facilities:</p>\
-								<ul>\
-									<li><i class="fas fa-wifi"></i></li>\
-									<li><i class="fas fa-bath"></i></li>\
-								</ul>\
-							</div>');
+		var newFacilities = $(`<div class="amenities">
+								<p>Facilities:</p>
+								<ul>
+									<li><i class="fas fa-wifi"></i></li>
+									<li><i class="fas fa-bath"></i></li>
+								</ul>
+							</div>`);
 		newInfo.append(newFacilities);
-		newRes.append(newInfo);		
+		newRes.append(newInfo);
 
-		$(".reslist").append(newRes);	
+		$(".reslist").append(newRes);
+		}
 	}
 }
 
@@ -147,7 +152,7 @@ function myMapFunction() {
 	//and retrieve more details for that place
 	searchBox.addListener('places_changed', function() {
 		var places = searchBox.getPlaces();
-		if (places.length==0) {
+		if (places.length===0) {
 			return;
 		}
 
@@ -209,10 +214,10 @@ function defaultMarker() {
 var hasEnoughInfo =false;
 function validateEntry() {
 	var origin = $("#controller");
-	if (($(origin).children(".name").val()!="")&&
-		($(origin).children(".rating").val()!="")&&
-		($(origin).children(".price").val()!="")&&
-		($(origin).children(".descriptionInput").val()!="")){
+	if (($(origin).children(".name").val()!=="")&&
+		($(origin).children(".rating").val()!=="")&&
+		($(origin).children(".price").val()!=="")&&
+		($(origin).children(".descriptionInput").val()!=="")){
 		$(origin).children("button").prop("disabled",false);
 		if (!hasEnoughInfo) {
 			console.log("success");
@@ -250,7 +255,7 @@ function addHotelMarker(text) {
 	//will open on the map, on *this* marker
 	marker.addListener('click', function() {
 		infowindow.open(map, this);
-	})
+	});
 
 	hotelMarkers.push(marker);
 }
@@ -271,17 +276,18 @@ function addHotel() {
 		"description":description,
 		//obtains longitude and latitude?
 		"position": map.getCenter()
-	}
+	};
+
 	updateServerHotelsData(newHotel);
 
 	clearNewHotelEntryFields();
 
-	var testString = '<div>\
-	<p>'+name+'</p>\
-	<p>Rating: '+rating+' by ___ guests</p>\
-	<p>Rooms from '+price+'</p>\
-	<p><a href="example.com">See more...</a></p>\
-	</div>'
+	var testString = `<div>
+	<p>`+name+`</p>
+	<p>Rating: `+rating+` by ___ guests</p>
+	<p>Rooms from `+price+`</p>
+	<p><a href="example.com">See more...</a></p>
+	</div>`;
 
 	//outer div
 	var newRes = $('<div class="result"></div>');
@@ -291,12 +297,13 @@ function addHotel() {
 	//main body
 	var newInfo = $('<div class="information"></div>');
 	//hotel name
-	var newHeader = $("<h3>"+name+"</h3>");
+	var prev = window.location.pathname;
+	var newHeader = $("<h3><a href='/hotel?property="+name+"&ref="+prev+"'>"+name+"</a></h3>");
 	newInfo.append(newHeader);
 	//contains p elements: rating and how many reviews
 	var newReview = $('<div class="review"></div>');
 	var newRating = $("<p class=\"rating\">"+rating+"</p>");
-	var newReviewCount = $("<p><a href=\"reviews.com\">___ reviews</a></p>");
+	var newReviewCount = $("<p><a>___ reviews</a></p>");
 	newReview.append(newRating); newReview.append(newReviewCount);
 	newInfo.append(newReview);
 	//location of the hotel
@@ -310,13 +317,13 @@ function addHotel() {
 	var newPrice =$('<div>Rooms start at $<span class="price">'+price+'</span>/night</div>');
 	newInfo.append(newPrice);
 	//facilities and amenities are default
-	var newFacilities = $('<div class="amenities">\
-							<p>Facilities:</p>\
-							<ul>\
-								<li><i class="fas fa-wifi"></i></li>\
-								<li><i class="fas fa-bath"></i></li>\
-							</ul>\
-						</div>');
+	var newFacilities = $(`<div class="amenities">
+							<p>Facilities:</p>
+							<ul>
+								<li><i class="fas fa-wifi"></i></li>
+								<li><i class="fas fa-bath"></i></li>
+							</ul>
+						</div>`);
 	newInfo.append(newFacilities);
 	newRes.append(newInfo);
 
@@ -343,9 +350,9 @@ function updateServerHotelsData(newHotel) {
 		if (this.readyState==4 && this.status==200) {
 			console.log("hotel added");
 		}
-	}
+	};
 
-	postReq.open("POST", "/hotels.json", true)
+	postReq.open("POST", "/hotels.json", true);
 	postReq.setRequestHeader("Content-type", "application/json");
 	postReq.send(JSON.stringify(newEntry));
 }
@@ -405,8 +412,3 @@ function showDetailedFilter(filter) {
 	});
 }
 
-// let GREEN = "hsla(92, 60%, 35%, 1)";
-// let BLUE = "hsla(187, 67%, 44%, 1)";
-// let YELLOW = "hsla(52, 89%, 55%, 1)";
-// let LBROWN = "hsla(25, 63%, 58%, 1)";
-// let DCHOCO = "hsla(12, 75%, 27%, 1)";
