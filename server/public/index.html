@@ -2,6 +2,8 @@
 <html lang="en-US">
 	<head>
 		<meta charset="utf-8">
+		<meta name="google-signin-client_id" content="166539957450-37od0bampf06jlt34j11ri1te6ncu0fd.apps.googleusercontent.com">
+
 		<title>BeeBNB</title>
 		<link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
 		<link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
@@ -38,7 +40,8 @@
 	     			<input type="submit" value="Login / Signup">
 	 			</form>
 	 			<hr>
-     			<input type="text" placeholder="Google placeholder" name="username" id="GoogleAuth"><br />
+     			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+     			<a href="#" onclick="signOut();">Sign out</a>
      			<hr>
 	 			<button type="button" onclick="login()">Cancel</button>
 			</div>
@@ -183,5 +186,8 @@
 		<a href="./index.html">return to index page</a>
 		<a href="./hotel.html">return to hotel page</a>
 		<a href="./account.html">return to account page</a>
+
+
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 	</body>
 </html>

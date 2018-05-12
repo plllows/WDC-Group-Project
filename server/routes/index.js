@@ -1,5 +1,11 @@
+/*jshint esversion: 6 */
 var express = require('express');
 var router = express.Router();
+
+var CLIENT_ID = '166539957450-37od0bampf06jlt34j11ri1te6ncu0fd.apps.googleusercontent.com';
+// var {OAuth2Client} = require('google-auth-library');
+// var client = new OAuth2Client(CLIENT_ID);
+
 var fs = require('fs');
 var path = require('path');
 var session = require('express-session');
@@ -37,6 +43,7 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
+/*navigate to account page*/
 router.get('/account', function(req, res) {
 	res.sendfile(path.join(__dirname, '../public', 'account.html'));
 });
@@ -47,7 +54,7 @@ router.get('/accessAccount', function(req, res) {
 		res.redirect('/account?username='+sessions[req.session.id]);
 	} 
 
-	//if not logged in, redirect to home page?
+	//if not logged in, redirect to home page
 	console.log("redirecting to previous page");
 	res.redirect(req.query.ref);
 });
@@ -55,6 +62,43 @@ router.get('/accessAccount', function(req, res) {
 /*processing login request*/
 var users = {};
 var sessions = {};
+
+router.post('/loginWithGoogle', function(req, res) {
+	console.log(req.body);
+
+	/*if google sign in*/
+	if (req.body.idtoken!==undefined) {
+		console.log("Google Login detected");
+
+		// const ({OAuth2Client} = require('google-auth-library'));
+		// const client = new OAuth2Client(CLIENT_ID);
+
+		async function verify() {
+		  	const ticket = await client.verifyIdToken({
+		        idToken: req.body.idtoken,
+		        audience: CLIENT_ID, 
+	    	});
+
+
+		    const payload = ticket.getPayload();
+		    const userid = payload['sub'];
+		    const firstname = payload['given_name'];
+		  	const lastname = payload['family_name'];
+
+			var username = firstname+userid;
+			var name = {
+				first: firstname,
+				last: lastname
+			}
+
+			users[username].username = username;
+			users[username].name = name;
+			sessions[req.session.id] = username;
+			res.redirect('/?username='+sessions[req.session.id]);
+		}
+		verify().catch(console.error);
+	}
+}
 
 router.post('/login', function(req, res) {
 	console.log(req.body);
