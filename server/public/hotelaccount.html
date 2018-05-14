@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Account Page</title>
+        <title>Hotel Account Page</title>
         <link href="stylesheets/account.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
 
@@ -27,10 +27,13 @@
             <button type="button" class="logbutton" onclick="past()">Past Bookings</button>
             <button type="button" class="logbutton" onclick="account()">Account Details</button>
         <div id= "bookings">
-        	<h4>Bookings<br></h4>
+        	<h4>Current Client Bookings<br></h4>
             <div class = "tile" id = 'bookingtile'>
-                <a href="./hotel.html">Bella Hotel Apartments</a><br>
-                <p>Date: 21/06/2018 - 25/06/2018</p><br>
+                <p>Client Name: Bobby Joe<br>
+                    Date: 21/06/2018 - 25/06/2018<br>
+                    Number of Rooms: 3<br>
+                    <b>Contact Client</b><br>
+                </p>
                 <button type="button" class="logbutton" onclick="manage()">Manage Booking</button><br>
             </div>
 
@@ -38,19 +41,6 @@
 
         <div id= "manage">
             <div class = "tile">
-                <h4>Number of rooms</h4>
-                <select name="Number of rooms">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                </select>
-
-                <button type="button" class="logbutton" onclick="alert('Submitted to Hotel')">Request change in Number of Rooms</button>
-                
                 <button type="button" class="logbutton" onclick="alert('Cancelled Booking')">Cancel Booking</button>
             </div>
         </div>
@@ -58,29 +48,19 @@
         <div id= "past">
            <div class = "tile">
                 <h4>Booking History</h4><br>
-                <p>Hotel: <a href="http://www3.hilton.com/en/hotels/south-australia/hilton-adelaide-ADLHITW/index.html">Hilton Hotel</a><br>
-                Date: 25/06/2015<br>
-                Star Rating</p>
-                <select name="Star Rating">
-                  <option value="" selected disabled hidden>Stars/5</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select><br>
-                <textarea name="review" style="width:200px; height:100px">Leave your review here!</textarea><br>
-                <input type="submit" class="logbutton">
+                <p>Client Name: Bobby Cinders<br>
+                Date: 25/06/2015 - 28/06/2015<br>
+                Numbers of rooms: 3
+                <b>Contact Client</b>
+                </p>
             </div>
         </div>   
 
         <div id='details'>
             <div class = "tile">
-                <h4>Account Details</h4><br>
-                <form action="details.php" method="get">Name:<input type="text" name="name"><br><br>
+                <h4>Hotel Details</h4><br>
+                <form action="details.php" method="get">Hotel Name:<input type="text" name="name"><br><br>
                 Email:<input type="text" name="email"><br><br>
-                Facebook:<br><br>
-                Google:<br><br>
                 Change Password:<input type="password" name="password"><br>
                 <input type="submit" class="logbutton">
             	</form>
