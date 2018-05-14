@@ -11,13 +11,13 @@ p {margin-top:10px;
    font-size: 18px;}
 
 img{border:none;
-    align-items: left;}
+    align-items: flex-start;}
 
 
 hr{height:10px;border:none;border-top:10px groove skyblue;}
 
-a{blr:expression(this.onFocus=this.blur());outline:none;}
-
+/*a{blr:expression(this.onFocus=this.blur());outline:none;}
+*/
 
 #bookingForm {
 
@@ -31,13 +31,11 @@ a{blr:expression(this.onFocus=this.blur());outline:none;}
 
 	"submit submit submit";
 
-	align-content: space-evenly;
+	align-content: space-around;
 
 	align-items: stretch;
 
-	justify-content: space-evenly;
-
-	justify-items: stretch;
+	justify-content: space-around;
 
 }
 

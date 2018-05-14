@@ -37,11 +37,14 @@
 	     			<input type="submit" value="Login / Signup">
 	 			</form>
 	 			<hr>
-     			<input type="text" placeholder="Google placeholder" name="username" id="GoogleAuth"><br />
+     			<div class="g-signin2" data-onsuccess="onSignIn"></div> <!-- data-onsuccess -->
+     			<a href="#" onclick="signOut();">Sign out</a>
      			<hr>
 	 			<button type="button" onclick="login()">Cancel</button>
 			</div>
     	</div> 
+
+    	
 
 		<!--no booking form but in the search landing page we need:
 		destination, the information we searched with, filters, sort results
@@ -251,5 +254,6 @@
 		<a href="./account.html">return to account page</a>
 
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGTNPyDEz3qhIql4z_slq9O89v0tpy22k&libraries=places&callback=myMapFunction"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
 	</body>
 </html>

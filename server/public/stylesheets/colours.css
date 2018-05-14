@@ -22,6 +22,29 @@ yellow:
 rgb(243,178,62);
 */
 
+/*booking form css*/
+#bookingForm {
+	background-color: rgb(243,178,62);
+}
+
+/*login form css*/
+.loginbox {
+	background-color: rgba(255, 255, 255, 0.48);
+}
+
+.loginbox .container {
+	background-color: rgb(249,248,244);
+}
+
+/*search page*/
+.result {
+	background-color: rgb(249,248,244);
+}
+
+.sort ul li, .perpage ul li, .filter ul li, .detailedFilter div ul li, {
+	background-color: rgb(243,178,62);
+}
+
 /*header of page*/
 header {
 	background-color: rgb(55,43,43);

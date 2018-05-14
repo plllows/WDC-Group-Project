@@ -1,3 +1,13 @@
+window.onload = checkForSession;
+
+function checkForSession() {
+	console.log("Checking for existing sessions");
+	var getReq = new XMLHttpRequest();
+
+	getReq.open("GET", '/checkForSession', true);
+	getReq.send();
+}
+
 /*controls toggle for the login portal*/
 function login() {
 	if ($(".loginbox").css("display")=="none") {
@@ -18,26 +28,35 @@ function onSignIn(googleUser) {
    console.log("ID Token: " + id_token);
 
    GoogleSignIn({idtoken: id_token});
-
 }
 
 function GoogleSignIn(param) {
 	console.log("GoogleSignIn called");
 	var postReq = new XMLHttpRequest();
 
+	console.log(JSON.stringify(param));
+
 	postReq.onreadystatechange = function() {
 		if (this.readyState==4 && this.status==200) {
-			console.log("post submit success");
-
-			var post = document.createTextNode(JSON.stringify(newPost));
-			document.getElementById("container").appendChild(post);
-			//addPost(newTitle,newText);
+			res = JSON.parse(postReq.responseText);
+			console.log("receiving response from verify");
+			console.log(res);
+			GSIRedirect(res);
 		}
-	};
+	}; 
 
 	postReq.open("POST", '/loginWithGoogle', true);
 	postReq.setRequestHeader("Content-type", "application/json");
 	postReq.send(JSON.stringify(param));
+}
+
+function GSIRedirect(username) {
+	console.log("redirecting via /GSIlogin");
+	var getReq = new XMLHttpRequest();
+	getReq.open("GET", '/GSIlogin?username='+username, true);
+	console.log("Username in GSIR: "+username);
+	getReq.send();
+	//postReq.send(JSON.stringify(username));
 }
 
 function signOut() {

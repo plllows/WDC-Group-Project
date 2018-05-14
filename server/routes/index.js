@@ -63,6 +63,13 @@ router.get('/accessAccount', function(req, res) {
 var users = {};
 var sessions = {};
 
+router.get('/checkForSession', function(req, res) {
+	if (sessions[req.session.id]) {
+		res.redirect('/?username='+sessions[req.session.id]);
+	} 
+	res.redirect('/');
+});
+
 router.post('/loginWithGoogle', function(req, res) {
 	console.log(req.body);
 
@@ -72,14 +79,13 @@ router.post('/loginWithGoogle', function(req, res) {
 		async function verify() {
 		  	const ticket = await client.verifyIdToken({
 		        idToken: req.body.idtoken,
-		        audience: CLIENT_ID, 
+		        audience: CLIENT_ID
 	    	});
 
-
 		    const payload = ticket.getPayload();
-		    const userid = payload['sub'];
-		    const firstname = payload['given_name'];
-		  	const lastname = payload['family_name'];
+		    const userid = payload.sub;
+		    const firstname = payload.given_name;
+		  	const lastname = payload.family_name;
 
 			var username = firstname+userid;
 			var name = {
@@ -90,14 +96,31 @@ router.post('/loginWithGoogle', function(req, res) {
 			console.log(username);
 			console.log(name);
 
-			users[username].username = username;
-			users[username].name = name;
+			var newUser = {};
+			newUser.username = username;
+			newUser.name = name;
+			users.username = newUser;
+
 			sessions[req.session.id] = username;
-			res.redirect('/?username='+sessions[req.session.id]);
+			console.log("successfully created new user, returning username");
+			console.log(JSON.stringify(username));
+			res.send(JSON.stringify(username));
 		}
 		verify().catch(console.error);
+		// setTimeout(function() {
+		// 	res.redirect('/?username='+sessions[req.session.id]); 
+		// }, 2000);
+		
 	}
 });
+
+router.get('/GSIlogin', function(req, res) {
+	console.log("recieved: "+req.query.username);
+	if ((users[req.query.username]) && (sessions[req.session.id])) {
+		console.log("existing login - redirecting to home");
+		res.redirect('/?username='+sessions[req.session.id]);
+	}
+}); 
 
 router.post('/login', function(req, res) {
 	console.log(req.body);

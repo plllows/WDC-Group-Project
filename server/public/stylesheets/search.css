@@ -125,7 +125,7 @@ main {
 	padding-right: 0.5%;
 	grid-template-rows: 400px;
 	grid-template-columns: repeat(2,minmax(305px, 370px));
-	grid-auto-columns: repeat(2,minmax(305px, 400px));
+	grid-auto-columns: minmax(305px, auto) minmax(305px, auto);
 	grid-auto-rows: 400px;
 	grid-gap: 5px;
 }

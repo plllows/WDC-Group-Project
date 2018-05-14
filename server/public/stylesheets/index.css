@@ -64,11 +64,10 @@ div.submit input {font-size: 15px;}
 	padding-left: 5%;
 	padding-right:5%;
 	grid-gap: 6px;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 .article {
-	display: border-box;
 	height: 350px;
 	width: 250px;
 	padding: 10px 2%; 
@@ -102,7 +101,7 @@ div.submit input {font-size: 15px;}
 	display: flex;
 	height: auto;
 	padding: 40px 3%;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	align-items: flex-start;
 }
 

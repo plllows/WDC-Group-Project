@@ -19,5 +19,3 @@ function initIndex() {
 
 	console.log("changed button attributes");
 }
-
-window.onload = initIndex;
