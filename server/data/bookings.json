@@ -8,7 +8,7 @@
 			"checkout":"11/11/2011",
 			"hotelname":"hotelname",
 			"review":"It was ok",
-			"rating":3
+			"rating":3,
 			"numofrooms":3
 		},
 		"2": {
@@ -17,7 +17,7 @@
 			"checkout":"11/11/2011",
 			"hotelname":"hotelname",
 			"review":"It was ok",
-			"rating":3
+			"rating":3,
 			"numofrooms":2
 		}
 	}

@@ -3,8 +3,8 @@ var express = require('express');
 var router = express.Router();
 
 var CLIENT_ID = '166539957450-37od0bampf06jlt34j11ri1te6ncu0fd.apps.googleusercontent.com';
-// var {OAuth2Client} = require('google-auth-library');
-// var client = new OAuth2Client(CLIENT_ID);
+var {OAuth2Client} = require('google-auth-library');
+var client = new OAuth2Client(CLIENT_ID);
 
 var fs = require('fs');
 var path = require('path');
@@ -69,10 +69,6 @@ router.post('/loginWithGoogle', function(req, res) {
 	/*if google sign in*/
 	if (req.body.idtoken!==undefined) {
 		console.log("Google Login detected");
-
-		const {OAuth2Client} = require('google-auth-library');
-		const client = new OAuth2Client(CLIENT_ID);
-
 		async function verify() {
 		  	const ticket = await client.verifyIdToken({
 		        idToken: req.body.idtoken,
@@ -89,7 +85,10 @@ router.post('/loginWithGoogle', function(req, res) {
 			var name = {
 				first: firstname,
 				last: lastname
-			}
+			};
+
+			console.log(username);
+			console.log(name);
 
 			users[username].username = username;
 			users[username].name = name;
