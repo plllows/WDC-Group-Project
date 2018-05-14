@@ -34,7 +34,6 @@ function getBookings() {
 
 function initialiseBookings(){
     for (var key in bookings) {
-        if (true) {
             var hotelname, checkin, checkout, numofrooms;
             hotelname = bookings[key].hotelname;
             checkin = checkin[key].checkin;
@@ -42,6 +41,7 @@ function initialiseBookings(){
             numofrooms = numofrooms[key].numofrooms;
 
             var newtiles = newtile();
+    }
 }
 
 function newtile(hotelname, checkin, checkout, numofrooms){
