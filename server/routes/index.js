@@ -70,8 +70,8 @@ router.post('/loginWithGoogle', function(req, res) {
 	if (req.body.idtoken!==undefined) {
 		console.log("Google Login detected");
 
-		// const ({OAuth2Client} = require('google-auth-library'));
-		// const client = new OAuth2Client(CLIENT_ID);
+		const {OAuth2Client} = require('google-auth-library');
+		const client = new OAuth2Client(CLIENT_ID);
 
 		async function verify() {
 		  	const ticket = await client.verifyIdToken({
@@ -98,7 +98,7 @@ router.post('/loginWithGoogle', function(req, res) {
 		}
 		verify().catch(console.error);
 	}
-}
+});
 
 router.post('/login', function(req, res) {
 	console.log(req.body);
