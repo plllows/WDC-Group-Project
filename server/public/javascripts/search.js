@@ -6,6 +6,7 @@
 // let DCHOCO = "hsla(12, 75%, 27%, 1)";
 
 var map = null;
+var searchBox = null;
 
 var hotels = {};
 
@@ -135,7 +136,7 @@ function myMapFunction() {
 
 	//create search box and link to UI
 	var input = document.getElementById('pac-input');
-	var searchBox = new google.maps.places.SearchBox(input);
+	searchBox = new google.maps.places.SearchBox(input); 
 	/*map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);*/
 
 	//Bias searchbox results towards map viewport
@@ -196,9 +197,23 @@ function myMapFunction() {
 	});
 	console.log("places should have changed");
 	getHotels();
+
 	var searchParam = getDest();
-	$('#pac-input').val(searchParam+'\n');
+	$('#pac-input').val(searchParam);
+	console.log("searchparam is: "+searchParam);
+
+	document.getElementById('pac-input').onblur = function () {
+	    google.maps.event.trigger(this, 'focus', {});
+	    google.maps.event.trigger(this, 'keydown', {
+	        keyCode: 13
+	    });
+	};
+	$('#pac-input').focus();
+	setTimeout(function() {
+		$('#pac-input').blur();
+	}, 1000);
 }
+
 
 /*obtained from http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html*/
 
