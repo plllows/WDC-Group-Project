@@ -5,17 +5,15 @@ body {
 }
 
 div.container {
-                width:100%;
-                padding: 1em;
-                margin-right: 100px;
-                border: 1px solid gray;
+                width:80%;
+                min-height:600px;
+                margin-left: 50px;
+                margin-top: 50px;
+
                 background-color:white;
-                padding:50px;
+
             }
 main {
-                margin: 170px;
-                border: 1px solid gray;
-                padding: 1em;
                 overflow: hidden;
             }
 
@@ -41,8 +39,20 @@ header {
 	justify-content: space-between;
 }
 
-pre {
-	background-color:grey;
+div.tile {
+	background-color:rgb(249,248,244);
+	padding: 10px;
+	width: 80%;
+	padding-left: 40px;
+	margin-bottom:50px;
+}
+
+#bookingtile {
+	background-color:rgb(249,248,244);
+	padding: 10px;
+	width: 80%;
+	padding-left: 40px;
+	margin-bottom:50px;
 }
 
 div.logo {
@@ -60,12 +70,24 @@ div.signup {
 header h1 {
 	display: inline-block; 
 	width: 200px; 
-	color: yellow;
 }
 
 header button {
 	display: inline-block;
 	margin: 5px;
+}
+
+.logbutton {
+    background-color: rgb(243,178,62);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 /*main containing the booking form*/
@@ -109,9 +131,9 @@ footer {
 }
 
 .subscribe {
-	background-color: white;
 	height: 70px;
-	padding: 20px 10px;
+	background-color: rgb(243,178,62);
+	color: black;
 }
 
 .subscribe h3 {
