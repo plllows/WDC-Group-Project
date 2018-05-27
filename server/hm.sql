@@ -147,6 +147,7 @@ DROP TABLE IF EXISTS `owns`;
 CREATE TABLE `owns` (
   `userID` char(8) DEFAULT NULL,
   `hotelID` char(10) DEFAULT NULL,
+  `propertyCount` int(3) DEFAULT NULL,
   KEY `userID` (`userID`),
   KEY `hotelID` (`hotelID`),
   CONSTRAINT `owns_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `hotel_owner` (`userID`) ON DELETE SET NULL,
@@ -160,7 +161,7 @@ CREATE TABLE `owns` (
 
 LOCK TABLES `owns` WRITE;
 /*!40000 ALTER TABLE `owns` DISABLE KEYS */;
-INSERT INTO `owns` VALUES ('a1700000','h000000000');
+INSERT INTO `owns` VALUES ('a1700000','h000000000',1);
 /*!40000 ALTER TABLE `owns` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-27 15:16:11
+-- Dump completed on 2018-05-27 15:22:15
