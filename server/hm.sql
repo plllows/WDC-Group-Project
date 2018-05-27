@@ -38,7 +38,10 @@ CREATE TABLE `booking` (
   `checkout` date DEFAULT NULL,
   `roomcount` int(4) DEFAULT NULL,
   PRIMARY KEY (`userID`,`bookingID`),
-  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
+  KEY `hotelID` (`hotelID`),
+  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE,
+  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`hotelID`) REFERENCES `hotel` (`hotelID`),
+  CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,7 +89,8 @@ CREATE TABLE `booking_list` (
   `userID` char(8) NOT NULL DEFAULT '',
   `size` int(3) DEFAULT NULL,
   PRIMARY KEY (`userID`),
-  CONSTRAINT `booking_list_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
+  CONSTRAINT `booking_list_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE,
+  CONSTRAINT `booking_list_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,6 +146,7 @@ CREATE TABLE `hotel_owner` (
   `first_name` varchar(15) DEFAULT NULL,
   `middle_name` varchar(15) DEFAULT NULL,
   `last_name` varchar(15) DEFAULT NULL,
+  `propertyCount` int(3) DEFAULT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -194,7 +199,8 @@ CREATE TABLE `review` (
   `review` varchar(500) DEFAULT NULL,
   `rating` int(2) DEFAULT NULL,
   PRIMARY KEY (`userID`,`bookingID`),
-  CONSTRAINT `review_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
+  CONSTRAINT `review_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE,
+  CONSTRAINT `review_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -270,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-27 14:04:24
+-- Dump completed on 2018-05-27 14:13:00
