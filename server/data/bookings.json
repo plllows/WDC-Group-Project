@@ -1,21 +1,23 @@
 {
 	"username": {
-		"username":"username",
+		"userID":1,
 		"size": 2,
 		"1": {
-			"hotelname":"hotelname",
+			"userID":1,
+			"bookingID":1,
+			"hotelID":1,
 			"checkin":"10/10/2010",
 			"checkout":"11/11/2011",
-			"hotelname":"hotelname",
 			"review":"It was ok",
 			"rating":3,
 			"numofrooms":3
 		},
 		"2": {
-			"hotelname":"hotelname",
+			"userID":1,
+			"bookingID": 2,
+			"hotelID":2,
 			"checkin":"10/10/2010",
 			"checkout":"11/11/2011",
-			"hotelname":"hotelname",
 			"review":"It was ok",
 			"rating":3,
 			"numofrooms":2

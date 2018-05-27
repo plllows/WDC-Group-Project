@@ -1,6 +1,7 @@
 {
 	"propertyOwner": {
 		"username": "username",
+		"userID":3,
 		"password": "password",
 		"propertyCount":1,
 		"properties": {
