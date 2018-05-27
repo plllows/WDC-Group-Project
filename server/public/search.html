@@ -96,15 +96,15 @@
 
 		<div class="filter">
 			<ul>
-				<li onclick="showDetailedFilter('price')">Price</li>
-				<li onclick="showDetailedFilter('rating')">Rating</li>
-				<li onclick="showDetailedFilter('facilities')">Facilities</li>
-				<li onclick="showDetailedFilter('roomtype')">Room Type</li>
+				<li onclick="showDetailedFilter('df_price')">Price</li>
+				<li onclick="showDetailedFilter('df_rating')">Rating</li>
+				<li onclick="showDetailedFilter('df_facilities')">Facilities</li>
+				<li onclick="showDetailedFilter('df_roomtype')">Room Type</li>
 			</ul>
 		</div>
 
 		<div class="detailedFilter">
-			<div class="price">
+			<div class="df_price">
 				<ul>
 					<li>$20-50</li>
 					<li>$50-100</li>
@@ -112,7 +112,7 @@
 					<li>$300+</li>
 				</ul>
 			</div>
-			<div class="rating">
+			<div class="df_rating">
 				<ul>
 					<li>9.0+</li>
 					<li>8.0-9.0</li>
@@ -121,7 +121,7 @@
 					<li>6.0-</li>
 				</ul>
 			</div>
-			<div class="facilities">
+			<div class="df_facilities">
 				<ul >
 					<li>Free Wifi</li>
 					<li>Free Breakfast</li>
@@ -130,7 +130,7 @@
 					<li>Airport Shuttle</li>
 				</ul>
 			</div>
-			<div class="roomtype">
+			<div class="df_roomtype">
 				<ul>
 					<li>Dorm</li>
 					<li>Private Room</li>
@@ -152,11 +152,11 @@
 				
 				</div>
 				<div id="controller">
-					<input id="pac-input" type="text" class="controls" placeholder="Search Location">
+					<input id="pac-input" type="text" class="controls" placeholder="Search Location" oninput="checkNewline()">
 					<button disabled onclick="addHotel()">Place Marker/Add Hotel</button>
 					<hr>
 					<span>Property name:</span>
-					<input oninput="validateEntry()" class="name" type="text" placeholder="Name of Hotel">
+					<input oninput="validateEntry(); checkNewline();" class="name" type="text" placeholder="Name of Hotel">
 					<br>
 					<span>Rating:</span>
 					<input oninput="validateEntry()" class="rating" type="number" min="0" step="0.5" placeholder="rating">

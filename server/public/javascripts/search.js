@@ -118,7 +118,6 @@ function initialiseHotels() {
 	}
 }
 
-
 function myMapFunction() {
 	//options
 	var mapOptions = {
@@ -197,8 +196,26 @@ function myMapFunction() {
 	});
 	console.log("places should have changed");
 	getHotels();
-	//initialiseHotels();
+	var searchParam = getDest();
+	$('#pac-input').val(searchParam+'\n');
 }
+
+/*obtained from http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html*/
+
+function getDest() {
+	var sPageURL = window.location.search.substring(1);
+    console.log("URL IS: "+sPageURL);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == 'destination') {
+        	console.log(sParameterName[1]);
+            return sParameterName[1];
+        }
+    }
+	return;
+}
+
 
 function defaultMarker() {
 	console.log("markers placed");
@@ -359,7 +376,7 @@ function updateServerHotelsData(newHotel) {
 
 /*search options section*/
 let options = ["filter","sort","perpage"];
-let filters = ["price","rating","facilities","roomtype"];
+let filters = ["df_price","df_rating","df_facilities","df_roomtype"];
 
 function showOption(option) {
 	$("."+option).toggle();
