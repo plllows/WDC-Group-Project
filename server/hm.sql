@@ -36,12 +36,11 @@ CREATE TABLE `booking` (
   `hotelID` char(10) DEFAULT NULL,
   `checkin` date DEFAULT NULL,
   `checkout` date DEFAULT NULL,
-  `roomcount` int(4) DEFAULT NULL,
+  `suite` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`userID`,`bookingID`),
   KEY `hotelID` (`hotelID`),
   CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE,
-  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`hotelID`) REFERENCES `hotel` (`hotelID`),
-  CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
+  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`hotelID`) REFERENCES `hotel` (`hotelID`) ON DELETE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,6 +50,7 @@ CREATE TABLE `booking` (
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` VALUES ('a0000000','b000000000','h000000000','2015-01-01','2015-01-04','standard suite'),('a0000000','b000000001','h000000000','2015-01-05','2015-01-09','royal sapphire suite');
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,32 +75,8 @@ CREATE TABLE `booking_ID` (
 
 LOCK TABLES `booking_ID` WRITE;
 /*!40000 ALTER TABLE `booking_ID` DISABLE KEYS */;
+INSERT INTO `booking_ID` VALUES ('a0000000','b000000000'),('a0000000','b000000001');
 /*!40000 ALTER TABLE `booking_ID` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `booking_list`
---
-
-DROP TABLE IF EXISTS `booking_list`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `booking_list` (
-  `userID` char(8) NOT NULL DEFAULT '',
-  `size` int(3) DEFAULT NULL,
-  PRIMARY KEY (`userID`),
-  CONSTRAINT `booking_list_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE,
-  CONSTRAINT `booking_list_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user_account` (`userID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `booking_list`
---
-
-LOCK TABLES `booking_list` WRITE;
-/*!40000 ALTER TABLE `booking_list` DISABLE KEYS */;
-/*!40000 ALTER TABLE `booking_list` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -114,8 +90,8 @@ CREATE TABLE `hotel` (
   `hotelID` char(10) NOT NULL DEFAULT '',
   `ownerID` char(8) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
-  `rating` int(2) DEFAULT NULL,
   `location` varchar(50) DEFAULT NULL,
+  `rating` double DEFAULT NULL,
   PRIMARY KEY (`hotelID`),
   KEY `ownerID` (`ownerID`),
   CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`ownerID`) REFERENCES `hotel_owner` (`userID`)
@@ -128,6 +104,7 @@ CREATE TABLE `hotel` (
 
 LOCK TABLES `hotel` WRITE;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
+INSERT INTO `hotel` VALUES ('h000000000','a1700000','Bella Hotel Apartments','250 City Road, 3006 Melb, Australia',4.5);
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +123,6 @@ CREATE TABLE `hotel_owner` (
   `first_name` varchar(15) DEFAULT NULL,
   `middle_name` varchar(15) DEFAULT NULL,
   `last_name` varchar(15) DEFAULT NULL,
-  `propertyCount` int(3) DEFAULT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,6 +133,7 @@ CREATE TABLE `hotel_owner` (
 
 LOCK TABLES `hotel_owner` WRITE;
 /*!40000 ALTER TABLE `hotel_owner` DISABLE KEYS */;
+INSERT INTO `hotel_owner` VALUES ('a1700000','rich@gmail.com','owner1','password','rich','richard','richardson');
 /*!40000 ALTER TABLE `hotel_owner` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,6 +160,7 @@ CREATE TABLE `owns` (
 
 LOCK TABLES `owns` WRITE;
 /*!40000 ALTER TABLE `owns` DISABLE KEYS */;
+INSERT INTO `owns` VALUES ('a1700000','h000000000');
 /*!40000 ALTER TABLE `owns` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,6 +188,7 @@ CREATE TABLE `review` (
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
+INSERT INTO `review` VALUES ('a0000000','b000000000','It was ok',3),('a0000000','b000000001','It was AMAZING!',10);
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,9 +201,10 @@ DROP TABLE IF EXISTS `room`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `room` (
   `hotelID` char(10) NOT NULL DEFAULT '',
+  `name` varchar(20) NOT NULL DEFAULT '',
   `available` int(4) DEFAULT NULL,
-  `price` int(7) DEFAULT NULL,
-  PRIMARY KEY (`hotelID`),
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`hotelID`,`name`),
   CONSTRAINT `room_ibfk_1` FOREIGN KEY (`hotelID`) REFERENCES `hotel` (`hotelID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -235,6 +215,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES ('h000000000','royal sapphire suite',30,260),('h000000000','standard suite',100,126);
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,6 +245,7 @@ CREATE TABLE `user_account` (
 
 LOCK TABLES `user_account` WRITE;
 /*!40000 ALTER TABLE `user_account` DISABLE KEYS */;
+INSERT INTO `user_account` VALUES ('a0000000','test@gmail.com','firstuser','password','2015-01-01','john','smith','citizen'),('a0000001','test@gmail.com','user1','password','2015-01-01','bill','smith','citizen');
 /*!40000 ALTER TABLE `user_account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -276,4 +258,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-27 14:13:00
+-- Dump completed on 2018-05-27 15:16:11
