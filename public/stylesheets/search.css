@@ -1,0 +1,268 @@
+/*this is a pastebin
+
+div {
+	outline: solid black;
+}
+
+*/
+
+body {
+	margin:0;
+	padding:0;
+}
+
+/*the secondary information bar at the top*/
+div.destination {
+	display:flex;
+	flex-direction: column;
+	width:100%;
+	height:200px;
+	padding:10px;
+	background-image: url(https://images.homedepot-static.com/productImages/92e56dcd-708d-4b5d-a98c-2f10ed8ccdd7/svn/white-niagara-stealth-two-piece-toilets-77001rwhai1-64_1000.jpg);
+	background-position:50% 50%; 
+	background-size:cover; 
+	justify-content: space-between;
+}
+
+
+.description p {padding:0; margin:5px;}
+
+.preferences p {
+	font-size: 15px;
+	padding:0;
+	margin:0;
+}
+
+/*the filter for the search results*/
+
+.options ul {
+	list-style-type: none;
+	display: flex;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	justify-content: flex-start;
+}
+
+
+.options ul li {
+	display: inline-block;
+	text-align: center;
+	margin: 0;
+	padding: 25px;
+	text-decoration: none;
+	/*border-left: dotted hsla(25, 63%, 58%, 1);*/
+	border-right: dotted hsla(25, 63%, 58%, 1);
+}
+
+.sort, .perpage, .filter {
+	display:none;
+}
+
+.sort ul, .perpage ul, .filter ul {
+	list-style-type: none;
+	display: flex;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	justify-content: flex-start;
+}
+
+.sort ul li, .perpage ul li, .filter ul li{
+	display: inline-block;
+	text-align: center;
+	margin:0;
+	padding: 19px;
+	text-decoration: none;
+	border-right: dotted hsla(25, 63%, 58%, 1);
+}
+
+.detailedFilter div {
+	display:none;
+}
+
+.detailedFilter div ul {
+	list-style-type: none;
+	display: flex;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	justify-content: flex-start;
+	background-color: hsla(92, 60%, 35%, 1);
+}
+
+.detailedFilter div ul li{
+	display: inline-block;
+	text-align: center;
+	margin:0;
+	padding: 13px;
+	text-decoration: none;
+	background-color: hsla(92, 60%, 35%, 1);
+	border-right: dotted hsla(25, 63%, 58%, 1);
+}
+
+.detailedFilter div ul li:hover {
+	background-color: blanchedalmond;
+}
+
+/*main consists of tiled search results and a map search box*/
+main {
+	display: flex;
+	padding:0;
+	justify-content: space-between;
+	align-items: flex-start;
+	height:auto;
+	width: 100%;
+	height:auto;
+}
+
+.reslist {
+	display: grid;
+	width:auto;
+	height:auto;
+	padding: 1% 0;
+	padding-left: 1.5%;
+	padding-right: 0.5%;
+	grid-template-rows: 400px;
+	grid-template-columns: repeat(2,minmax(305px, 370px));
+	grid-auto-columns: minmax(305px, auto) minmax(305px, auto);
+	grid-auto-rows: 400px;
+	grid-gap: 5px;
+}
+
+.result {
+	display: flex;
+	margin: 5px 10px;
+	flex-direction: column;
+	padding:10px;
+	overflow:hidden;
+}
+
+.information .description {
+	height: 47px;
+	overflow: hidden;
+}
+
+.result .image {
+	width:240px;
+	height:160px;
+	border: dotted black;
+	background-image: url(../images/volcano.JPG);
+	background-position:50% 50%; 
+	background-size:cover; 
+	padding: 0;
+	margin: 0 auto;
+}
+
+.result .information {
+	text-align: left;
+	padding:10px;
+}
+
+.review {margin: 2px 0;}
+
+.review .rating {font-size: 20px;}
+
+.review p {display: inline;}
+
+.information p {
+	font-size: 14px;
+	padding:2px;
+	margin:3px 0;
+}
+
+.information h3 {
+	font-size: 20px;
+	padding:2px;
+	margin:1px;
+}
+
+.information .amenities p {
+	display: inline-block;
+	font-size: 14px;
+}
+
+.information .amenities ul {
+	display: inline-block;
+	list-style-type: none;
+	margin:0;
+	padding: 0px;
+}
+
+.information .amenities ul li {
+	float:left;
+	padding:5px;
+	top: 10px;
+	position: relative;
+}
+
+#pac-input {
+	width: 300px;
+}
+
+#controller .name {
+	width: 300px;
+	margin-bottom: 3px;
+}
+
+#controller .rating {
+	width: 50px;
+	margin-top: 3px;
+	margin-left: 12px;
+	margin-right: 25px;
+}
+
+#controller .price {
+	width: 50px;
+	margin-top: 3px;
+	margin-left: 12px;
+	margin-right: 25px;
+}
+
+#map {
+	margin: 5px;
+	border: solid black;
+	width:490px;
+	height:490px;
+	/*insert google maps here*/
+}
+
+#controller {
+	padding: 5px;
+	margin: 5px;
+	width:490px;
+}
+
+.descriptionInput {
+	width: 480px;
+	height: 150px;
+}
+
+/*a strip below main that shows the navigation for search results*/
+.pageList {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pageList button {
+	display: inline-block;
+}
+
+.pageList ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}
+
+.pageList ul li{
+	float:left;
+	/*
+	display: block;
+	color; somecolor:
+	text-align: center;
+	padding: somepixels
+	textdecoration: none*/
+}
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <title>Account Page</title>
+        <link href="stylesheets/account.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/colours.css">
+
+        <script src="javascripts/account.js"></script>
+        <script src="javascripts/login.js"></script>
+        <script src="javascripts/jquery.js"></script>
+    </head>
+
+    <body>
+        <!--The grey bar at the top, with company logo and log in-->
+        <header>
+            <div class="logo">
+                <img alt="bee" width="30" src="https://i.pinimg.com/originals/5c/3f/11/5c3f117de062db7f39be2c13e4e8e8c5.png">
+                <h1>BeeBNB</h1>
+            </div>
+            <div class="signup">
+                <button type="button" class="logbutton" name="Log out!" onclick="signout">Log out!</button>
+            </div>
+        </header>
+
+        <div class= "container" id='main'>
+            <button type="button" class="logbutton" onclick="getBookings()"><b>Bookings</b></button>
+            <button type="button" class="logbutton" onclick="past()">Past Bookings</button>
+            <button type="button" class="logbutton" onclick="account()">Account Details</button>
+        <div id= "bookings">
+        	<h4>Bookings<br></h4>
+            <div class = "tile" id = 'bookingtile'>
+                <a href="./hotel.html">Bella Hotel Apartments</a><br>
+                <p>Date: 21/06/2018 - 25/06/2018</p><br>
+                <button type="button" class="logbutton" onclick="manage()">Manage Booking</button><br>
+            </div>
+
+        </div>
+
+        <div id= "manage">
+            <div class = "tile">
+                <h4>Number of rooms</h4>
+                <select name="Number of rooms">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                </select>
+
+                <button type="button" class="logbutton" onclick="alert('Submitted to Hotel')">Request change in Number of Rooms</button>
+                
+                <button type="button" class="logbutton" onclick="alert('Cancelled Booking')">Cancel Booking</button>
+            </div>
+        </div>
+
+        <div id= "past">
+           <div class = "tile">
+                <h4>Booking History</h4><br>
+                <p>Hotel: <a href="http://www3.hilton.com/en/hotels/south-australia/hilton-adelaide-ADLHITW/index.html">Hilton Hotel</a><br>
+                Date: 25/06/2015<br>
+                Star Rating</p>
+                <select name="Star Rating">
+                  <option value="" selected disabled hidden>Stars/5</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select><br>
+                <textarea name="review" style="width:200px; height:100px">Leave your review here!</textarea><br>
+                <input type="submit" class="logbutton">
+            </div>
+        </div>   
+
+        <div id='details'>
+            <div class = "tile">
+                <h4>Account Details</h4><br>
+                <form action="details.php" method="get">Name:<input type="text" name="name"><br><br>
+                Email:<input type="text" name="email"><br><br>
+                Facebook:<br><br>
+                Google:<br><br>
+                Change Password:<input type="password" name="password"><br>
+                <input type="submit" class="logbutton">
+            	</form>
+            </div>
+        </div>
+        </div>
+
+
+<!--extra links, subscription prompt, copyright and accessibility-->
+        <footer>
+            <div class="references">
+                <div>
+                    <h4>About Us:</h4>
+                    <ul>
+                        <li>Affiliates</li>
+                        <li>Our Mission</li>
+                        <li>Hotel Sign Up</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Join our team!</h4>
+                    <ul>
+                        <li>Careers</li>
+                        <li>Our Offices</li>
+                        <li>Career Outcomes</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Useful reading:</h4>
+                    <ul>
+                        <li>Privacy policy</li>
+                        <li>Insurance</li>
+                        <li>Travel and Safety</li>
+                        <li>Blogs</li>
+                    </ul>
+                </div>
+                <div>
+                <h4>Find us on Social Media:</h4>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+            </div>  
+
+            <div class="subscribe">
+                <h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
+                <p>Join our VIP Club!:</p>
+                <input type="text" name="email"><br>
+            </div>  
+
+            <div class="final">
+                <p class="copyright">&#169; BeeBNB 2018</p>
+                
+                <div class="accessibility">
+                    <p class="prompt">Select Currency/Language:</p>
+                    <nav>
+                        <select name="Select Currency:">
+                            <option value="1">USD</option>
+                            <option value="2">AUD</option>  
+                            <option value="3">dong</option>
+                        </select>
+                            <select name="Select Language:">
+                            <option value="1">English</option>
+                            <option value="2">British</option>
+                            <option value="3">American</option>
+                        </select>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+        <a href="./search.html">return to search page</a>
+        <a href="./index.html">return to index page</a>
+        <a href="./hotel.html">return to hotel page</a>
+        <a href="./account.html">return to account page</a>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </body>
+</html>

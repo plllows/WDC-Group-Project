@@ -1,0 +1,12 @@
+{
+	"propertyOwner": {
+		"username": "username",
+		"userID":3,
+		"password": "password",
+		"propertyCount":1,
+		"properties": {
+			"hotel1":"hotelName1",
+			"hotel2":"hotelName2"
+		}
+	}
+}

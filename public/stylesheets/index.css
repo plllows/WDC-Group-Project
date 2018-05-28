@@ -1,0 +1,114 @@
+/*this is a pastebin
+
+div {
+	outline: solid black;
+}
+
+*/
+
+body {
+	margin:0;
+	padding:0;
+}
+
+/*main containing the booking form*/
+main {
+	display: flex;
+	height: 700px;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../images/volcano.JPG);
+	background-position: 50% 50%; 
+	background-size: cover; 
+}
+
+#bookingForm {
+	display: grid;
+	height:180px;
+	width: 410px;
+	margin: 30px auto;
+	grid-template-areas: "dest dest dest"
+	"checkIn checkOut guestCount"
+	"submit submit submit";
+	grid-template-rows: 2fr 2fr 1fr;
+	grid-template-columns: 2fr 2fr 1fr;
+	align-content: space-around;
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+#bookingForm div {
+	text-align: center;
+	padding: 10px; 
+	margin: 0;
+}
+
+#bookingForm div input {display: inline-block; margin: 0 auto;}
+#bookingForm div p {display: inline-block; margin: 0 auto; }
+
+div.dest {grid-area: dest;}
+div.in {grid-area: checkIn;}
+div.out {grid-area: checkOut;}
+div.manCount {grid-area: guestCount;}
+div.submit {grid-area: submit;}
+
+div.dest input {width: 100%; font-size: 25px}
+div.submit input {font-size: 15px;}
+
+/*articles in our suggestions list*/
+.suggestions {
+	display: flex;
+	flex-wrap: wrap;
+	height: auto;
+	margin: 10px auto;
+	padding-left: 5%;
+	padding-right:5%;
+	grid-gap: 6px;
+	justify-content: space-around;
+}
+
+.article {
+	height: 350px;
+	width: 250px;
+	padding: 10px 2%; 
+	margin:10px;
+	overflow: hidden;
+}
+
+.article h3 {
+	display: block;
+	text-align: center;
+	padding:0; 
+	margin:5px 0;
+}
+
+.article .image {
+	width: auto;
+	margin: 10px 1%;
+	height: 150px;
+	background-image: url(../images/volcano.JPG);
+	background-position:50% 50%; 
+	background-size:cover; 
+}
+
+.article p {
+	display: block;
+	font-size: 14px;
+}
+
+/*list of reasons why you should book with us*/
+.persuasion {
+	display: flex;
+	height: auto;
+	padding: 40px 3%;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.perk {
+	text-align: center;
+	width:300px;
+	height:250px;
+	margin: 0 5px;
+}
+

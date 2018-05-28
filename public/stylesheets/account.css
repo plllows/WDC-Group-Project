@@ -1,0 +1,185 @@
+body {
+	background-color: white;
+	margin:0;
+	padding:0;
+}
+
+div.container {
+                width:80%;
+                min-height:600px;
+                margin-left: 50px;
+                margin-top: 50px;
+
+                background-color:white;
+
+            }
+main {
+                overflow: hidden;
+            }
+
+            #bookings{
+                /*display:none;*/
+            }
+            #past{
+                display:none;
+            }
+            #details{
+                display:none;
+            }
+            #manage{
+                display:none;
+            }
+
+/*header bar at the top of the page*/
+header {
+	display: flex;
+	background-color: grey;
+	height: 50px;
+	padding: 10px;
+	justify-content: space-between;
+}
+
+div.tile {
+	background-color:rgb(249,248,244);
+	padding: 10px;
+	width: 80%;
+	padding-left: 40px;
+	margin-bottom:50px;
+}
+
+#bookingtile {
+	background-color:rgb(249,248,244);
+	padding: 10px;
+	width: 80%;
+	padding-left: 40px;
+	margin-bottom:50px;
+}
+
+div.logo {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+div.signup {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+header h1 {
+	display: inline-block; 
+	width: 200px; 
+}
+
+header button {
+	display: inline-block;
+	margin: 5px;
+}
+
+.logbutton {
+    background-color: rgb(243,178,62);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/*main containing the booking form*/
+main {
+	display: flex;
+	height: 700px;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../images/volcano.JPG);
+	background-position: 50% 50%; 
+	background-size: cover; 
+}
+
+
+div.dest {grid-area: dest;}
+div.in {grid-area: checkIn;}
+div.out {grid-area: checkOut;}
+div.manCount {grid-area: guestCount;}
+div.submit {grid-area: submit;}
+
+div.dest input {width: 100%; font-size: 25px}
+div.submit input {font-size: 15px;}
+
+
+/*footer including mailing list, links, etc*/
+footer {
+	background-color: lightblue;
+}
+
+.references {
+	display: flex;
+	padding:30px 0;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.references div h4 {
+	font-size: 20px;
+	padding:0;
+	margin:0;
+}
+
+.subscribe {
+	height: 70px;
+	background-color: rgb(243,178,62);
+	color: black;
+}
+
+.subscribe h3 {
+	margin:0;
+	padding:0;
+	margin-bottom: 5px;
+}
+.subscribe p {
+	display: inline-block;
+	height:30px;
+	margin:0;
+	padding:0;
+}
+.subscribe input {
+	display: inline-block;
+	height:30px;
+	width:60%;
+	margin:0;
+	padding:0;
+	font-size: 20px;
+}
+
+div.final {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+div.accessibility {
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.copyright {
+	display: inline-block;
+	padding:0;
+	margin:0;
+}
+
+.accessibility .prompt {
+	margin-right: 20px;
+}
+
+.accessibility nav select {
+	display: inline-block;
+	padding:0;
+	margin:10px;
+	float:right;
+}
