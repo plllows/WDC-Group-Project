@@ -1,7 +1,0 @@
-var JSONObject= {
-    "left":"4",
-    "price":"126$", 
- 
-};
-document.getElementById("hleft").innerHTML=JSONObject.left 
-document.getElementById("hprice").innerHTML=JSONObject.price

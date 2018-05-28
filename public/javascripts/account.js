@@ -39,7 +39,12 @@ function initialiseBookings(){
             checkin = checkin[key].checkin;
             checkout = checkout[key].checkout;
             numofrooms = numofrooms[key].numofrooms;
-
+		dat = {}
+	    console.log(formElements)
+	    for(i=0;i<formElements.length; i++){
+		   
+		    
+	    }
             var newtiles = newtile();
     }
 }
@@ -52,4 +57,18 @@ function newtile(hotelname, checkin, checkout, numofrooms){
 	var t = document.createTextNode(par.hotelname + " " + par.checkin + " - " + par.checkout + "Number of Rooms:"+ par.numofrooms);
     tile.appendChild(t);
     document.getElementById("bookings").appendChild(tile);
+}
+
+function updaterooms(){
+	var rooms = document.getElementById('rooms');
+	dat = {}
+	console.log(formElements)
+	
+	var xhttp = new XMLHttpRequest();
+	
+	xhttp.open("POST","rooms", true);
+	
+	xhttp.setRequestHeader("Content-type","application/json");
+	
+	xhttp.send(JSON.stringify(rooms));
 }
