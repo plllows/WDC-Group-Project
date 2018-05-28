@@ -39,7 +39,7 @@
 
         <div id= "manage">
             <div class = "tile">
-                <h4>Number of rooms</h4>
+                <h4 id="rooms">Number of rooms</h4>
                 <select name="Number of rooms">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -78,11 +78,8 @@
         <div id='details'>
             <div class = "tile">
                 <h4>Account Details</h4><br>
-                <form action="details.php" method="get">Name:<input type="text" name="name"><br><br>
-                Email:<input type="text" name="email"><br><br>
-                Facebook:<br><br>
-                Google:<br><br>
-                Change Password:<input type="password" name="password"><br>
+                <form action="details.php" method="get">Name:<input type="text" name="name" value="Jing"><br><br>
+                    <p>Google:</p><div class="g-signin2" data-onsuccess="onSignIn"></div> <!-- data-onsuccess -->
                 <input type="submit" class="logbutton">
             	</form>
             </div>
