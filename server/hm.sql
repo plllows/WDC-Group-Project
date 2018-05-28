@@ -92,6 +92,9 @@ CREATE TABLE `hotel` (
   `name` varchar(30) DEFAULT NULL,
   `location` varchar(50) DEFAULT NULL,
   `rating` double DEFAULT NULL,
+  `lat` float DEFAULT NULL,
+  `lng` float DEFAULT NULL,
+  `description` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`hotelID`),
   KEY `ownerID` (`ownerID`),
   CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`ownerID`) REFERENCES `hotel_owner` (`userID`)
@@ -104,7 +107,7 @@ CREATE TABLE `hotel` (
 
 LOCK TABLES `hotel` WRITE;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
-INSERT INTO `hotel` VALUES ('h000000000','a1700000','Bella Hotel Apartments','250 City Road, 3006 Melb, Australia',4.5);
+INSERT INTO `hotel` VALUES ('h000000000','a1700000','Bella Hotel Apartments','250 City Road, 3006 Melb, Australia',4.5,NULL,NULL,NULL),('h000000001','a1700000','testhotel',NULL,0,-34.9207,138.61,'It is a very nice hotel indeed'),('h000000002','a1700000','Generic Hotel',NULL,7.5,-34.9265,138.606,'A beautiful hotel within walking distance of the f'),('h000000003','a1700000','Bad Hotel',NULL,0.5,-34.9338,138.616,'This hotel is so bad its average user reviews is b'),('h000000004','a1700000','Friendly Hotel',NULL,7.5,-34.9354,138.589,'This hotel doesn\'t have much to distinguish it fro');
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +219,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES ('h000000000','royal sapphire suite',30,260),('h000000000','standard suite',100,126);
+INSERT INTO `room` VALUES ('h000000000','royal sapphire suite',30,260),('h000000000','standard suite',100,126),('h000000001','standard test suite',50,40),('h000000002','generic deluxe',75,120),('h000000002','generic single',200,70),('h000000003','BAD room',40,7),('h000000003','No shower',40,5),('h000000003','No toilet',40,10),('h000000004','Friendly balcony',50,70),('h000000004','Friendly single',100,50);
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,4 +262,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-27 15:22:15
+-- Dump completed on 2018-05-28 13:29:46
