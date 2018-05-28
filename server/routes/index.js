@@ -225,6 +225,11 @@ router.get('/hotelPage', function(req, res) {
 	res.sendfile(path.join(__dirname, '../public', 'hotel.html'));
 });
 
+/*get bookings*/
+router.get('/bookings.json', function(req, res) {
+	console.log(bookings);
+	res.send(JSON.stringify(bookings));
+});
 
 
 
