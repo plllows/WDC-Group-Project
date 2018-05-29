@@ -14,7 +14,7 @@ var bookings;
 var accounts;
 var hotelaccounts;
 var hotels;
-var UID = 520;
+var UID = 600; //spaghetti is good
 
 var sessions; //key and val are both usernames
 
