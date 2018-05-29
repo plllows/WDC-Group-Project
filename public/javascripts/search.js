@@ -51,16 +51,16 @@ function initialiseHotels() {
 		description =hotels[key].description;
 
 		var testString = `<div>
-		<p>'+name+'</p>
-		<p>Rating: '+rating+' by ___ guests</p>
-		<p>Rooms from '+price+'</p>
+		<p>`+hotels[key].name+`</p>
+		<p>Rating: `+hotels[key].rating+` by ___ guests</p>
+		<p>Rooms from `+hotels[key].price+`</p>
 		<p><a href="example.com">See more...</a></p>
 		</div>`;
 
 		console.log("adding marker for "+key);
-		console.log(hotels[key].position);
+		console.log(hotels[key].lat);
 		var marker = new google.maps.Marker({
-			position: hotels[key].position,
+			position: {lat: hotels[key].lat, lng: hotels[key].lng},
 			map: map,
 			label: hotels[key].name
 		});

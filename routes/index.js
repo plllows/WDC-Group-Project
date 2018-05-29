@@ -14,6 +14,7 @@ var bookings;
 var accounts;
 var hotelaccounts;
 var hotels;
+var UID = 520;
 
 var sessions; //key and val are both usernames
 
@@ -101,6 +102,16 @@ router.post('/loginWithGoogle', function(req, res) {
 			newUser.name = name;
 			users.username = newUser;
 
+			req.pool.getConnection(function(err, connection) {
+				if (err) throw err;
+
+				var query = "insert into user_account (userID, username, first_name, last_name) values (?, ?, ?, ?)";
+				connection.query(query, [UID++, newUser.username, newUser.name.first, newUser.name.last], function(err, results) {
+					if (err) throw err;
+					connection.release();
+				});
+			});
+
 			sessions[req.session.id] = username;
 			console.log("successfully created new user, returning username");
 			console.log(JSON.stringify(username));
@@ -116,34 +127,45 @@ router.post('/loginWithGoogle', function(req, res) {
 
 router.get('/GSIlogin', function(req, res) {
 	console.log("recieved: "+req.query.username);
-	if ((users[req.query.username]) && (sessions[req.session.id])) {
-		console.log("existing login - redirecting to home");
-		res.redirect('/?username='+sessions[req.session.id]);
-	}
+	req.pool.getConnection(function(err, connection) {
+		if (err) throw err;
+		var query = "select * from user_account where username = ?"
+		connection.query(query, [req.query.username], function(err, results) {
+			if (err) throw err;
+			if ((results.length!=0) && (sessions[req.session.id])) {
+				res.redirect('/?username='+sessions[req.session.id]);
+			}
+		})
+	})
 }); 
 
 router.post('/login', function(req, res) {
 	console.log(req.body);
 
-	if (users[req.body.username]) {
-		//if the username exists, check password and set session[id] = their username, else redirect
-		if ((users[req.body.username].password == req.body.password) && (users[req.body.username].username==req.body.username)){
-			sessions[req.session.id] = req.body.username;
-			res.redirect('/?username='+sessions[req.session.id]);
-		}
-		res.redirect('/');
-	} else {
-		//create a user using supplied usernames and passwords, and give them a session
-		var newUser = {
-			"username": req.body.username,
-			"password":req.body.password
-		};
-		//users[req.body.username].username = req.body.username;
-		//users[req.body.username].password = req.body.password;
-		users[req.body.username] = newUser;
+	req.pool.getConnection(function(err, connection) {
+		if (err) throw err;
+
+		var query = "select * from user_account where username = ? and password = ?";
+		connection.query(query, [req.body.username, req.body.password], function(err, results) {
+			if (err) throw err;
+			connection.release();
+			if (results.length!=0) {
+				session[req.session.id] = req.body.username;
+				res.redirect('/?username='+sessions[req.session.id]);
+			}
+		});
+	});
+
+	req.pool.getConnection(function(err, connection) {
+		if (err) throw err;
 		sessions[req.session.id] = req.body.username;
-		res.redirect('/?username='+sessions[req.session.id]);
-	}
+		var query = "insert into user_account (userID, username, password) values (?,?)"
+		connection.query(query, [UID++,req.body.username, req.body.password], function() {
+			if (err) throw err;
+			connection.release();
+			res.redirect('/?username='+sessions[req.session.id]);
+		});
+	});
 });
 
 /*serves static search page*/
@@ -183,17 +205,13 @@ router.post('/search', function(req, res) {
 
 /*load search with the hotels we have by default*/
 router.get('/hotels.json', function(req, res) {
-	// console.log(hotels);
-	// res.send(JSON.stringify(hotels));
-	console.log("connecting...");
-
 	req.pool.getConnection(function(err, connection) {
 		if (err) {
 			console.log(err);
 			throw err;
 		}
 
-		var query = "select * from hotel";
+		var query = "select * from hotel inner join room on hotel.hotelID = room.hotelID group by hotel.hotelID";
 		connection.query(query, function(err, results) {
 			if (err) {
 				console.log(err);
@@ -207,29 +225,35 @@ router.get('/hotels.json', function(req, res) {
 	});
 });
 
+var HID = 100;
 /*processing addition of new hotels*/
 router.post('/hotels.json', function(req, res) {
+	if (sessions[req.session.id]) return;
+
 	console.log("add hotel received by router");
 	console.log(req.body);
 	console.log("and the name is: "+req.body.name);
 	var propertyOwner="";	
 
 	var newHotel = req.body;
-	
-	/*assign property owner if exists*/
-	if (sessions[req.session.id]) {
-		propertyOwner=sessions[req.session.id];
-	}
-	
-	if (hotels[req.body.name]) {
-		console.log("hotel by this name already exists");
-	} else {
-		console.log("adding hotel...");
-		hotels[newHotel.name] = newHotel;
-		//hotels[req.body.name].propertyOwner = propertyOwner;
-		console.log("done");
-		res.redirect('/search');
-	}
+
+	req.pool.getConnection(function(err, connection) {
+		if (err) {
+			console.log(err);
+			throw err;
+		}
+
+		var query = "insert into hotel (hotelID, ownerID, name, rating, lat, lng, description) add values (?, ?, ?, ?, ?, ?, ?)";
+		connection.query(query,[HID++, sessions[req.session.id], newHotel.name, newHotel.rating, newHotel.position.lat, newHotel.position.lng, newHotel.description],function(err, results) {
+			if (err) {
+				console.log(err);
+				throw err;
+			}
+			connection.release();
+			console.log(results);
+			res.redirect('/search');
+		});
+	});
 	res.redirect('/search');
 });
 

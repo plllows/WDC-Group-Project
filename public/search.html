@@ -152,11 +152,11 @@
 				
 				</div>
 				<div id="controller">
-					<input id="pac-input" type="text" class="controls" placeholder="Search Location" oninput="checkNewline()">
+					<input id="pac-input" type="text" class="controls" placeholder="Search Location">
 					<button disabled onclick="addHotel()">Place Marker/Add Hotel</button>
 					<hr>
 					<span>Property name:</span>
-					<input oninput="validateEntry(); checkNewline();" class="name" type="text" placeholder="Name of Hotel">
+					<input oninput="validateEntry()" class="name" type="text" placeholder="Name of Hotel">
 					<br>
 					<span>Rating:</span>
 					<input oninput="validateEntry()" class="rating" type="number" min="0" step="0.5" placeholder="rating">
