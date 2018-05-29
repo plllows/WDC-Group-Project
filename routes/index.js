@@ -183,8 +183,28 @@ router.post('/search', function(req, res) {
 
 /*load search with the hotels we have by default*/
 router.get('/hotels.json', function(req, res) {
-	console.log(hotels);
-	res.send(JSON.stringify(hotels));
+	// console.log(hotels);
+	// res.send(JSON.stringify(hotels));
+	console.log("connecting...");
+
+	req.pool.getConnection(function(err, connection) {
+		if (err) {
+			console.log(err);
+			throw err;
+		}
+
+		var query = "select * from hotel";
+		connection.query(query, function(err, results) {
+			if (err) {
+				console.log(err);
+				throw err;
+			}
+			connection.release();
+			console.log(results);
+			res.json(results);
+		});
+
+	});
 });
 
 /*processing addition of new hotels*/

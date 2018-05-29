@@ -12,6 +12,9 @@ var users = require('./routes/users');
 
 var app = express();
 
+var mysql = require('mysql');
+var dbConnectionPool =mysql.createPool({host: 'localhost', user: 'root', password: 'password', database: 'HOTELMANAGEMENT'});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -57,6 +60,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+app.use (function(req, res, next) {req.pool = dbConnectionPool; next();});
 
 
 module.exports = app;
