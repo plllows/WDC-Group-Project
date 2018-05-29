@@ -61,50 +61,32 @@
 
     <!--this div contains the booking form--> 
      <main>
-
-            <form id="bookingForm" action="_blank" method="get" target="_blank">
-
-                <div class="dest">
-
-                    <p>Destination</p>
-
-                    <input type="text" name="destination">
-
-                </div>
-
-                <div class="in">
-
-                    <p>Check in:</p>
-
-                    <input class="dateSelect" type="date" name="check in" value="1999-06-03">
-
-                </div>
-
-                <div class="out">
-
-                    <p>Check out:</p>
-
-                    <input class="dateSelect" type="date" name="check out" value="1999-06-04">
-
-                </div>
-
-                <div class="manCount">
-
-                    <p>Guests:</p>
-
-                    <input type="number" min="1" max="20" name="number of guests">
-
-                </div>
-
-                <div class="submit">
-
-                    <input type="submit" name="submit form" value="Find where you should BEE!">
-
-                </div>
-
-            </form>
-
-        </main>
+			<form id="bookingForm" action="/search" method="post">
+				<div class="dest">
+					<p>Destination</p>
+					<br>
+					<input type="text" name="destination" placeholder="enter destination...">
+				</div>
+				<div class="in">
+					<p>Check in:</p>
+					<br>
+					<input class="dateSelect" type="date" name="checkin" min="2018-01-01" max="2020-01-01">
+				</div>
+				<div class="out">
+					<p>Check out:</p>
+					<br>
+					<input class="dateSelect" type="date" name="checkout" min="2018-01-01" max="2020-01-01">
+				</div>
+				<div class="manCount">
+					<p>Guests:</p>
+					<br>
+					<input type="number" min="1" max="20" placeholder="guests" name="guestCount">
+				</div>
+				<div class="submit">
+					<input type="submit" name="submit form" value="Find where you should BEE!">
+				</div>
+			</form>
+		</main>
         <hr>
 
     <!--this p contains the name of hotel-->
@@ -240,7 +222,7 @@ $(document).ready(function(){
 
 
 
-      <form id="revbox" action="" method="post" class="STYLE-NAME">
+      <form id="revbox" method="post" class="STYLE-NAME">
       <h1 id="contactfrom">Contact And Commet Form
       </h1>
       <label>
@@ -336,12 +318,6 @@ $(document).ready(function(){
                         <li>Twitter</li>
                     </ul>
                 </div>
-            </div>  
-
-            <div class="subscribe">
-                <h3>GET SPECIAL OFFERS STRAIGHT INTO YOUR INBOX!</h3>
-                <p>Join our VIP Club!:</p>
-                <input type="text" name="email"><br>
             </div>  
 
             <div class="final">

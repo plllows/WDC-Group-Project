@@ -275,6 +275,30 @@ router.get('/bookings.json', function(req, res) {
 	res.send(JSON.stringify(bookings));
 });
 
+router.get('/bookings', function(req, rest){
+	req.pool.getConnection(function(err,connection){
+		if(err) throw err;
+		var sql = "SELECT BOOKINGID, LType FROM  line WHERE BOOKINGIS is NOT NULL";
+		connection.query(sql, function(err, results){
+			connection.release();
+			res.send();
+		});
+	});
+});
+
+router.pool.getConnection(function(err, connection){
+	console.log(req.body);	
+	reqpool.getConnection(function(err,connection){
+	if(err) throw err;
+	var sql = "INSERT INTO bookings(bookingID, review, rating, numofrooms) VALUES('"+req.body.bookingID+"', '"+req.body.review+"', '"+req.body.rating+"', '"+req.body.numofrooms+"');";
+		connection.query(sql, function(err,results){
+			console.log(results);
+			connection.release();
+			res.send({"bookingID":results.insertID});
+		});
+	});
+});
+
 
 
 module.exports = router;

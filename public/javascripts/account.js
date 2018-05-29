@@ -11,6 +11,12 @@ function account(){
 function manage(){
     document.getElementById('manage').style.display = "block";
 }
+function clearbookings(){
+	document.getElementById('bookingtile').innerHTML = "No Current Bookings";
+}
+function changerooms(){
+	document.getElementById('rooms').innerHTML = "Number of rooms : 3";
+}
 /*JSON*/
 
 var bookings = {};

@@ -30,7 +30,7 @@ rgb(243,178,62);
 	background-color: rgb(249,248,244);
 }
 
-.sort ul li, .perpage ul li, .filter ul li, .detailedFilter div ul li, {
+.sort ul li, .perpage ul li, .filter ul li, .detailedFilter div ul li {
 	background-color: rgb(243,178,62);
 }
 
@@ -44,6 +44,7 @@ header {
 footer {
 	background-color: rgb(55,43,43);
 	color: white;
+}
 
 .subscribe {
 	background-color: rgb(243,178,62);
@@ -94,9 +95,5 @@ hsla(12, 75%, 27%, 1);
 li:hover {
 	background-color: blanchedalmond;
 }
-/*parse error
-.result {
-	background-color: white;
-}
-*/
+
 
