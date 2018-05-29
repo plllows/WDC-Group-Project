@@ -59,6 +59,7 @@ function initialiseHotels() {
 
 		console.log("adding marker for "+key);
 		console.log(hotels[key].lat);
+		console.log("label is: "+hotels[key].name);
 		var marker = new google.maps.Marker({
 			position: {lat: hotels[key].lat, lng: hotels[key].lng},
 			map: map,
