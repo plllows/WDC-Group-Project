@@ -13,7 +13,7 @@ var users = require('./routes/users');
 var app = express();
 
 var mysql = require('mysql');
-var dbConnectionPool =mysql.createPool({host: 'localhost', user: 'root', password: 'password', database: 'HOTELMANAGEMENT'});
+var dbConnectionPool =mysql.createPool({host: '127.0.0.1', user: '', password: '', database: 'HOTELMANAGEMENT'});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'HUEHUEHUEHUE', resave: false, saveUninitialized: true,}));
+app.use (function(req, res, next) {req.pool = dbConnectionPool; next();});
 
 app.use('/', routes);
 app.use('/users', users);
@@ -60,8 +61,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-app.use (function(req, res, next) {req.pool = dbConnectionPool; next();});
 
 
 module.exports = app;
