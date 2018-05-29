@@ -8,11 +8,8 @@ p {margin-top:10px;
    font-weight:bold;
    font-size: 18px;}
 
-img{border:none;
-    align-items: left;}
+img{border:none;}
 
-
-a{blr:expression(this.onFocus=this.blur());outline:none;}
 
 
 #bookingForm {
@@ -25,13 +22,7 @@ a{blr:expression(this.onFocus=this.blur());outline:none;}
 
 	"submit submit submit";
 
-	align-content: space-evenly;
-
 	align-items: stretch;
-
-	justify-content: space-evenly;
-
-	justify-items: stretch;
 
 }
 
@@ -89,3 +80,4 @@ div.submit input {font-size: 15px;}
 .banner-box .hd ul li{width:12px;height:12px;border-radius :50%;text-indent:-9999px;margin-right:20px;background:#ccc;float:left;cursor:pointer;}
 
 .banner-box .hd ul li.on{background:#DA324D;}
+
